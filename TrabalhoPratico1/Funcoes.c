@@ -13,7 +13,12 @@
 #include <stdio.h>
 #include "Header.h"
 
-//erro estranho
+/// <summary>
+/// Importa pacientes de um ficheiro CSV
+/// </summary>
+/// <param name="pacientes"></param>
+/// <param name="filename"></param>
+/// <returns></returns>
 int ImportarPacientes(Paciente pacientes[], char filename[]) {
 	FILE* fp;
 	fp = fopen(filename, "r");

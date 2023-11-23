@@ -9,7 +9,6 @@
 */
 #pragma once
 
-#include "Funcoes.c"
 #define N 25
 
 typedef struct Paciente {
