@@ -1,0 +1,31 @@
+/*
+* Paulo Alexandre Rodrigues da Costa
+* a29851@alunos.ipca.pt
+* 22/11/2023
+*
+* Implementação de todas as funções do Trabalho Prático 1
+*
+* UC: PI
+*/
+
+#pragma warning (disable: 4996)
+
+#include <stdio.h>
+#include "Header.h"
+
+//erro estranho
+int ImportarPacientes(Paciente pacientes[], char filename[]) {
+	FILE* fp;
+	fp = fopen(filename, "r");
+	if (fp == NULL) return 0;
+
+	int i = 0;
+	while (1)
+	{
+		fscanf(fp, "%[^;];%[^;];%ld", pacientes[i].numPaciente, pacientes[i].nome, &pacientes[i].tel);
+		if (feof(fp)) break;
+		i++;
+	}
+	fclose(fp);
+	return 1;
+}
