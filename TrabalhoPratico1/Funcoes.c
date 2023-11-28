@@ -27,7 +27,7 @@ int ImportarPacientes(Paciente pacientes[], char filename[]) {
 	int i = 0;
 	while (1)
 	{
-		fscanf(fp, "%[^;];%[^;];%ld", pacientes[i].numPaciente, pacientes[i].nome, &pacientes[i].tel);
+		fscanf(fp, "%d;%[^;];%ld\n", &pacientes[i].numPaciente, pacientes[i].nome, &pacientes[i].tel);
 		if (feof(fp)) break;
 		i++;
 	}

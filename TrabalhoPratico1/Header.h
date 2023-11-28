@@ -12,7 +12,7 @@
 #define N 25
 
 typedef struct Paciente {
-	char numPaciente[N];
+	int numPaciente;
 	char nome[N];
 	long tel;
 } Paciente;
