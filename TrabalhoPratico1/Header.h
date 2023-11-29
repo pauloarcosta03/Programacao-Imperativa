@@ -11,13 +11,6 @@
 
 #define N 25
 
-//struct da informação do Paciente
-typedef struct Paciente {
-	int numPaciente;
-	char nome[N];
-	long tel;
-} Paciente;
-
 //Struct do plano nutricional
 typedef struct Plano {
 	int numPaciente;
@@ -27,7 +20,15 @@ typedef struct Plano {
 	int maxCal;
 } Plano;
 
+//struct da informação do Paciente
+typedef struct Paciente {
+	int numPaciente;
+	char nome[N];
+	long tel;
+	Plano planos[N];
+} Paciente;
+
 int ImportarPacientes(Paciente pacientes[], char filename[]);
 
 //Importa planos nutricionais de um ficheiro CSV
-int ImportarPlanos(Plano planos[], char filename[]);
+int ImportarPlanos(Plano planos[], char filename[], Paciente pacientes[]);

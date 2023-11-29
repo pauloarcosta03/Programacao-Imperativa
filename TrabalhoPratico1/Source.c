@@ -17,8 +17,8 @@ int main() {
 
 	int result = ImportarPacientes(pacientes, "Pacientes1.csv");
 
-	result = ImportarPlanos(planos, "Planos1.csv");
+	result = ImportarPlanos(planos, "Planos1.csv", pacientes);
 
-	planos;
+	printf("%d", result);
 
 }
