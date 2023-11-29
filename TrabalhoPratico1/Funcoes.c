@@ -34,3 +34,25 @@ int ImportarPacientes(Paciente pacientes[], char filename[]) {
 	fclose(fp);
 	return 1;
 }
+
+/// <summary>
+/// Importa planos nutricionais de um ficheiro CSV
+/// </summary>
+/// <param name="planos"></param>
+/// <param name="filename"></param>
+/// <returns></returns>
+int ImportarPlanos(Plano planos[], char filename[]) {
+	FILE* fp;
+	fp = fopen(filename, "r");
+	if (fp == NULL) return 0;
+
+	int i = 0;
+	while (1)
+	{
+		fscanf(fp, "%d;%[^;];%[^;];%d;%d\n", &planos[i].numPaciente, planos[i].data, planos[i].refeicao, &planos[i].minCal, &planos[i].maxCal);
+		if (feof(fp)) break;
+		i++;
+	}
+	fclose(fp);
+	return 1;
+}

@@ -13,8 +13,12 @@
 
 int main() {
 	Paciente pacientes[N];
+	Plano planos[N];
 
 	int result = ImportarPacientes(pacientes, "Pacientes1.csv");
 
-	pacientes;
+	result = ImportarPlanos(planos, "Planos1.csv");
+
+	planos;
+
 }
