@@ -21,4 +21,14 @@ int main() {
 
 	printf("%d", result);
 
+
+	/*-------------------------------------------*/
+	Dieta Dietas[N];
+
+	int result2 = DietaPaciente(Dietas, "InfoPacientes.csv");
+
+	printf("%s\n", Dietas[1].numPaciente);
+
+	Dietas;
+
 }

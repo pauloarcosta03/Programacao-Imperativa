@@ -10,6 +10,7 @@
 #pragma once
 
 #define N 25
+#define M 50
 
 //Struct do plano nutricional
 typedef struct Plano {
@@ -19,6 +20,14 @@ typedef struct Plano {
 	int minCal;
 	int maxCal;
 } Plano;
+
+typedef struct Dieta {
+	char numPaciente[N];
+	char data[M];
+	char ref[M];
+	char ali[M];
+	char cal[N];
+} Dieta;
 
 //struct da informação do Paciente
 typedef struct Paciente {
@@ -32,3 +41,6 @@ int ImportarPacientes(Paciente pacientes[], char filename[]);
 
 //Importa planos nutricionais de um ficheiro CSV
 int ImportarPlanos(Plano planos[], char filename[], Paciente pacientes[]);
+
+//Importa dietas de um ficheiro CSV
+int DietaPaciente(Dieta dietas[], char filename[]);
