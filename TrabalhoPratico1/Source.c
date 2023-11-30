@@ -12,9 +12,22 @@
 #include <stdio.h>
 
 int main() {
+	
 	Paciente pacientes[N];
 
 	int result = ImportarPacientes(pacientes, "Pacientes1.csv");
 
+	printf("%s\n", pacientes[1].numPaciente);
+	
 	pacientes;
+	
+	/*-------------------------------------------*/
+	Dieta Dietas[N];
+
+	int result2 = DietaPaciente(Dietas, "InfoPacientes.csv");
+
+	printf("%s\n", Dietas[1].numPaciente);
+
+	Dietas;
+
 }

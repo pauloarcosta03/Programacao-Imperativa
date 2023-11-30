@@ -10,6 +10,7 @@
 #pragma once
 
 #define N 25
+#define M 50
 
 typedef struct Paciente {
 	char numPaciente[N];
@@ -17,4 +18,15 @@ typedef struct Paciente {
 	long tel;
 } Paciente;
 
+typedef struct Dieta {
+	char numPaciente[N];
+	char data[M];
+	char ref[M];
+	char ali[M];
+	char cal[N];
+} Dieta;
+
 int ImportarPacientes(Paciente pacientes[], char filename[]);
+
+int DietaPaciente(Dieta dietas[], char filename[]);
+
