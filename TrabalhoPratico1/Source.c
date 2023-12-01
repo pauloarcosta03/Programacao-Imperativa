@@ -14,21 +14,14 @@
 int main() {
 	Paciente pacientes[N];
 	Plano planos[N];
+	Dieta dietas[N];
 
 	int result = ImportarPacientes(pacientes, "Pacientes1.csv");
 
 	result = ImportarPlanos(planos, "Planos1.csv", pacientes);
 
-	printf("%d", result);
+	result = DietaPaciente(dietas, "Dietas1.csv");
 
-
-	/*-------------------------------------------*/
-	Dieta Dietas[N];
-
-	int result2 = DietaPaciente(Dietas, "InfoPacientes.csv");
-
-	printf("%s\n", Dietas[1].numPaciente);
-
-	Dietas;
+	printf("Existem %d pacientes que ultrapassaram o limite máximo de calorias numa refeição.\n", NumPacientesCalMais(planos, 3, dietas, 4));
 
 }

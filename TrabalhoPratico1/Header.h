@@ -22,11 +22,11 @@ typedef struct Plano {
 } Plano;
 
 typedef struct Dieta {
-	char numPaciente[N];
+	int numPaciente;
 	char data[M];
 	char ref[M];
 	char ali[M];
-	char cal[N];
+	int cal;
 } Dieta;
 
 //struct da informação do Paciente
@@ -37,6 +37,7 @@ typedef struct Paciente {
 	Plano planos[N];
 } Paciente;
 
+//Importa pacientes de um ficheiro CSV
 int ImportarPacientes(Paciente pacientes[], char filename[]);
 
 //Importa planos nutricionais de um ficheiro CSV
@@ -44,3 +45,6 @@ int ImportarPlanos(Plano planos[], char filename[], Paciente pacientes[]);
 
 //Importa dietas de um ficheiro CSV
 int DietaPaciente(Dieta dietas[], char filename[]);
+
+//Conta o nº de pacientes que ultrapassaram o limite de calorias
+int NumPacientesCalMais(Plano planos[], int tamPlanos, Dieta dietas[], int tamDietas);
