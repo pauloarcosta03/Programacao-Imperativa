@@ -48,3 +48,6 @@ int DietaPaciente(Dieta dietas[], char filename[]);
 
 //Conta o nº de pacientes que ultrapassaram o limite de calorias
 int NumPacientesCalMais(Plano planos[], int tamPlanos, Dieta dietas[], int tamDietas);
+
+// Lista o Plano por refeicao de um paciente
+int ListarPlanoPorRefeicao(Plano planos[], Plano detalhes[], int tamPlanos, int numPaciente, char refeicao[]);

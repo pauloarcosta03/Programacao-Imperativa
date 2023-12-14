@@ -15,13 +15,22 @@ int main() {
 	Paciente pacientes[N];
 	Plano planos[N];
 	Dieta dietas[N];
+	Plano detalhes[N];
 
-	int result = ImportarPacientes(pacientes, "Pacientes1.csv");
+	ImportarPacientes(pacientes, "Pacientes1.csv");
 
-	result = ImportarPlanos(planos, "Planos1.csv", pacientes);
+	ImportarPlanos(planos, "Planos1.csv", pacientes);
 
-	result = DietaPaciente(dietas, "Dietas1.csv");
+	DietaPaciente(dietas, "Dietas1.csv");
 
-	printf("Existem %d pacientes que ultrapassaram o limite máximo de calorias numa refeição.\n", NumPacientesCalMais(planos, 3, dietas, 4));
+	/*printf("Existem %d pacientes que ultrapassaram o limite máximo de calorias numa refeição.\n", NumPacientesCalMais(planos, 3, dietas, 4));*/
 
+	// Supondo que você já tenha importado os planos nutricionais usando a função ImportarPlanos
+
+	ListarPlanoPorRefeicao(planos,detalhes,3,1,"pequeno almoço");
+		printf("Paciente: %d\n",detalhes[0].numPaciente);
+		printf("Refeicao: %s\n", detalhes[0].refeicao);
+		printf("Data: %s\n", detalhes[0].data);
+		printf("Minimo Calorias: %d\n", detalhes[0].minCal);
+		printf("Maximo Calorias: %d\n", detalhes[0].maxCal);
 }

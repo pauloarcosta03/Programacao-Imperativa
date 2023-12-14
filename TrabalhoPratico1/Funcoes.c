@@ -139,3 +139,28 @@ int AssociaPlano(Plano plano, Paciente pacientes[]) {
 	}
 	return 0;
 }
+
+/// <summary>
+/// Lista plano por refeicao
+/// </summary>
+/// <param name="planos"></param>
+/// <param name="detalhes"></param>
+/// <param name="tamPlanos"></param>
+/// <param name="numPaciente"></param>
+/// <param name="refeicao"></param>
+/// <returns></returns>
+int ListarPlanoPorRefeicao(Plano planos[], Plano detalhes[], int tamPlanos, int numPaciente, char refeicao[]) {
+	int contaDetalhes = 0;
+	for (int i = 0; i < tamPlanos; i++) {
+		if (planos[i].numPaciente == numPaciente && strcmp(planos[i].refeicao, refeicao) == 0) {
+			strcpy(detalhes[contaDetalhes].data, planos[i].data);
+			detalhes[contaDetalhes].numPaciente = planos[i].numPaciente;
+			detalhes[contaDetalhes].minCal = planos[i].minCal;
+			detalhes[contaDetalhes].maxCal = planos[i].maxCal;
+			strcpy(detalhes[contaDetalhes].refeicao, planos[i].refeicao);
+			contaDetalhes++;
+		}
+	}return 1;
+
+}
+
