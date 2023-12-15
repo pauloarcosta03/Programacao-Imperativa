@@ -9,6 +9,8 @@
 */
 #pragma once
 
+#include <stdbool.h>
+
 #define N 25
 #define M 50
 
@@ -47,4 +49,8 @@ int ImportarPlanos(Plano planos[], char filename[], Paciente pacientes[]);
 int DietaPaciente(Dieta dietas[], char filename[]);
 
 //Conta o nº de pacientes que ultrapassaram o limite de calorias
-int NumPacientesCalMais(Plano planos[], int tamPlanos, Dieta dietas[], int tamDietas);
+int NumPacientesPassaLim(Dieta dietas[], int tamDietas, int calMax, char dataMin[], char dataMax);
+
+bool ExisteNmrPaciente(Paciente pacientes[], int tamPacientes, int numPaciente);
+
+int ListaPacientesCalMais(Plano planos[], int tamPlanos, Dieta dietas[], int tamDietas, Paciente pacientes[], int tamPacientes, Paciente arrayOrdPacientes[]);

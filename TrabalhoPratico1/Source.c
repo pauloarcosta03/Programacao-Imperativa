@@ -22,6 +22,10 @@ int main() {
 
 	result = DietaPaciente(dietas, "Dietas1.csv");
 
-	printf("Existem %d pacientes que ultrapassaram o limite máximo de calorias numa refeição.\n", NumPacientesCalMais(planos, 3, dietas, 4));
+	Paciente pacientesOrd[N];
+
+	result = ListaPacientesCalMais(planos, 3, dietas, 4, pacientes, 3, pacientesOrd);
+
+	pacientes;
 
 }
