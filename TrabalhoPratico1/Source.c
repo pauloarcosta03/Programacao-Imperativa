@@ -27,6 +27,11 @@ int main() {
 	/*printf("Existem %d pacientes que ultrapassaram o limite máximo de calorias numa refeição.\n", NumPacientesCalMais(planos, 3, dietas, 4));*/
 
 	// Supondo que você já tenha importado os planos nutricionais usando a função ImportarPlanos
+	Paciente pacientesOrd[N];
+
+	int result = ListaPacientesCalMais(planos, 3, dietas, 4, pacientes, 3, pacientesOrd);
+
+	pacientes;
 
 /*ListarPlanoPorRefeicao(planos, detalhes, 3, 1, "pequeno almoço");
 		printf("Paciente: %d\n",detalhes[0].numPaciente);
