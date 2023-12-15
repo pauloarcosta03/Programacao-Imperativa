@@ -37,6 +37,14 @@ typedef struct Paciente {
 	Plano planos[N];
 } Paciente;
 
+//struct das medias das calorias dos pacientes
+typedef struct MediaCalorias {
+	int numPaciente;
+	float mediaCal;
+	char ref[M];
+} MediaCalorias;
+
+
 //Importa pacientes de um ficheiro CSV
 int ImportarPacientes(Paciente pacientes[], char filename[]);
 
@@ -51,3 +59,5 @@ int NumPacientesCalMais(Plano planos[], int tamPlanos, Dieta dietas[], int tamDi
 
 // Lista o Plano por refeicao de um paciente
 int ListarPlanoPorRefeicao(Plano planos[], Plano detalhes[], int tamPlanos, int numPaciente, char refeicao[]);
+
+int calcularMediaCalorias(Dieta dietas[], int numDietas, Paciente pacientes[], int numPacientes, char refeicao[], MediaCalorias mc[]);

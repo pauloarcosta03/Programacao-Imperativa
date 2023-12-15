@@ -164,3 +164,33 @@ int ListarPlanoPorRefeicao(Plano planos[], Plano detalhes[], int tamPlanos, int 
 
 }
 
+
+int calcularMediaCalorias(Dieta dietas[], int numDietas, Paciente pacientes[], int numPacientes, char refeicao[], MediaCalorias mc[]) {
+	double somaCalorias = 0;
+	int numRefeicoes = 0;
+
+	int posMedia = 0;
+
+	for (int j = 0; j < numPacientes; j++)
+	{
+
+		// Calcule a soma das calorias para a refeição e paciente específicos
+		for (int i = 0; i < numDietas; i++) {
+			if (dietas[i].numPaciente == pacientes[j].numPaciente && strcmp(dietas[i].ref, refeicao) == 0) {
+				somaCalorias += dietas[i].cal;
+				numRefeicoes++;
+			}
+		}
+
+		// Calcule a média de calorias se houver pelo menos uma refeição
+		if (numRefeicoes > 0) {
+			mc[posMedia].numPaciente = pacientes[j].numPaciente;
+			mc[posMedia].mediaCal = somaCalorias/numRefeicoes;
+			strcpy(mc[posMedia].ref, refeicao);
+
+			numRefeicoes = 0;
+			posMedia++;
+		}
+	}
+
+}
