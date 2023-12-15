@@ -105,7 +105,7 @@ int NumPacientesPassaLim(Dieta dietas[], int tamDietas, int calMax, char dataMin
 }
 
 /// <summary>
-/// Conta o nº de pacientes que ultrapassaram o limite de calorias
+/// Conta o nº de pacientes que ultrapassaram o limite de calorias do plano
 /// </summary>
 /// <param name="planos"></param>
 /// <param name="tamPlanos"></param>

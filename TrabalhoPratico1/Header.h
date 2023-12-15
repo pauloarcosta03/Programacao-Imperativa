@@ -14,6 +14,12 @@
 #define N 25
 #define M 50
 
+typedef enum Refeicao {
+	PequenoAlmoco,
+	Almoco,
+	Jantar
+} Refeicao;
+
 // Struct do plano nutricional
 typedef struct Plano {
 	int numPaciente;
