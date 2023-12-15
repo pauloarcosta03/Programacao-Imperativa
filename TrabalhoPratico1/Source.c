@@ -16,6 +16,7 @@ int main() {
 	Plano planos[N];
 	Dieta dietas[N];
 	Plano detalhes[N];
+	MediaCalorias mediacal[N];
 
 	ImportarPacientes(pacientes, "Pacientes1.csv");
 
@@ -32,10 +33,18 @@ int main() {
 
 	pacientes;
 
-	ListarPlanoPorRefeicao(planos,detalhes,3,1,"pequeno almoço");
+/*ListarPlanoPorRefeicao(planos, detalhes, 3, 1, "pequeno almoço");
 		printf("Paciente: %d\n",detalhes[0].numPaciente);
 		printf("Refeicao: %s\n", detalhes[0].refeicao);
 		printf("Data: %s\n", detalhes[0].data);
 		printf("Minimo Calorias: %d\n", detalhes[0].minCal);
 		printf("Maximo Calorias: %d\n", detalhes[0].maxCal);
+	*/
+
+
+	calcularMediaCalorias(dietas, 4, pacientes, 3, "pequeno almoço", mediacal);
+	mediacal;
+
+
+
 }
