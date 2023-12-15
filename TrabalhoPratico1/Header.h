@@ -49,6 +49,10 @@ int ImportarPlanos(Plano planos[], char filename[], Paciente pacientes[]);
 int DietaPaciente(Dieta dietas[], char filename[]);
 
 //Conta o nº de pacientes que ultrapassaram o limite de calorias
+int NumPacientesCalMais(Plano planos[], int tamPlanos, Dieta dietas[], int tamDietas);
+
+// Lista o Plano por refeicao de um paciente
+int ListarPlanoPorRefeicao(Plano planos[], Plano detalhes[], int tamPlanos, int numPaciente, char refeicao[]);
 int NumPacientesPassaLim(Dieta dietas[], int tamDietas, int calMax, char dataMin[], char dataMax);
 
 bool ExisteNmrPaciente(Paciente pacientes[], int tamPacientes, int numPaciente);
