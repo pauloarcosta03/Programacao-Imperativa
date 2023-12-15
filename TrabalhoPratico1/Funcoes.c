@@ -51,8 +51,7 @@ int DietaPaciente(Dieta dietas[], char filename[]) {
 	int i = 0;
 	while (1)
 	{
-		fscanf(fp, "%d;%[^;];%[^;];%[^;];%d",
-			&dietas[i].numPaciente, dietas[i].data, dietas[i].ref, dietas[i].ali, &dietas[i].cal);
+		fscanf(fp, "%d;%[^;];%d;%[^;];%d", &dietas[i].numPaciente, dietas[i].data, &dietas[i].refeicao, dietas[i].ali, &dietas[i].cal);
 		if (feof(fp)) break;
 		i++;
 	}
@@ -75,7 +74,8 @@ int ImportarPlanos(Plano planos[], char filename[], Paciente pacientes[]) {
 	int i = 0;
 	while (1)
 	{
-		fscanf(fp, "%d;%[^;];%[^;];%d;%d\n", &planos[i].numPaciente, planos[i].data, planos[i].refeicao, &planos[i].minCal, &planos[i].maxCal);
+		
+		fscanf(fp, "%d;%[^;];%d;%d;%d\n", &planos[i].numPaciente, planos[i].data, &planos[i].refeicao, &planos[i].minCal, &planos[i].maxCal);
 		//AssociaPlano(planos[i], pacientes);
 		if (feof(fp)) break;
 		i++;
@@ -127,7 +127,7 @@ int ListaPacientesCalMais(Plano planos[], int tamPlanos, Dieta dietas[], int tam
 		//Corre as dietas (para somar todas as calorias)
 		for (int j = 0; j < tamDietas; j++)
 		{
-			if (planos[i].numPaciente == dietas[j].numPaciente && strcmp(planos[i].refeicao, dietas[j].ref) == 0)
+			if (planos[i].numPaciente == dietas[j].numPaciente && planos[i].refeicao == dietas[j].refeicao)
 			{
 				calPaciente = calPaciente + dietas[j].cal;
 			}
@@ -213,15 +213,15 @@ int AssociaPlano(Plano plano, Paciente pacientes[]) {
 /// <param name="numPaciente"></param>
 /// <param name="refeicao"></param>
 /// <returns></returns>
-int ListarPlanoPorRefeicao(Plano planos[], Plano detalhes[], int tamPlanos, int numPaciente, char refeicao[]) {
+int ListarPlanoPorRefeicao(Plano planos[], Plano detalhes[], int tamPlanos, int numPaciente, Refeicao refeicao) {
 	int contaDetalhes = 0;
 	for (int i = 0; i < tamPlanos; i++) {
-		if (planos[i].numPaciente == numPaciente && strcmp(planos[i].refeicao, refeicao) == 0) {
+		if (planos[i].numPaciente == numPaciente && planos[i].refeicao == refeicao) {
 			strcpy(detalhes[contaDetalhes].data, planos[i].data);
 			detalhes[contaDetalhes].numPaciente = planos[i].numPaciente;
 			detalhes[contaDetalhes].minCal = planos[i].minCal;
 			detalhes[contaDetalhes].maxCal = planos[i].maxCal;
-			strcpy(detalhes[contaDetalhes].refeicao, planos[i].refeicao);
+			detalhes[contaDetalhes].refeicao = planos[i].refeicao;
 			contaDetalhes++;
 		}
 	}return 1;
@@ -229,7 +229,7 @@ int ListarPlanoPorRefeicao(Plano planos[], Plano detalhes[], int tamPlanos, int 
 }
 
 
-int calcularMediaCalorias(Dieta dietas[], int numDietas, Paciente pacientes[], int numPacientes, char refeicao[], MediaCalorias mc[]) {
+int calcularMediaCalorias(Dieta dietas[], int numDietas, Paciente pacientes[], int numPacientes, Refeicao refeicao, MediaCalorias mc[]) {
 	double somaCalorias = 0;
 	int numRefeicoes = 0;
 
@@ -240,7 +240,7 @@ int calcularMediaCalorias(Dieta dietas[], int numDietas, Paciente pacientes[], i
 
 		// Calcule a soma das calorias para a refeição e paciente específicos
 		for (int i = 0; i < numDietas; i++) {
-			if (dietas[i].numPaciente == pacientes[j].numPaciente && strcmp(dietas[i].ref, refeicao) == 0) {
+			if (dietas[i].numPaciente == pacientes[j].numPaciente && dietas[i].refeicao == refeicao) {
 				somaCalorias += dietas[i].cal;
 				numRefeicoes++;
 			}
@@ -250,7 +250,7 @@ int calcularMediaCalorias(Dieta dietas[], int numDietas, Paciente pacientes[], i
 		if (numRefeicoes > 0) {
 			mc[posMedia].numPaciente = pacientes[j].numPaciente;
 			mc[posMedia].mediaCal = somaCalorias/numRefeicoes;
-			strcpy(mc[posMedia].ref, refeicao);
+			mc[posMedia].refeicao = refeicao;
 
 			numRefeicoes = 0;
 			posMedia++;

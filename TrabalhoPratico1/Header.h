@@ -24,7 +24,7 @@ typedef enum Refeicao {
 typedef struct Plano {
 	int numPaciente;
 	char data[N];
-	char refeicao[N];
+	Refeicao refeicao;
 	int minCal;
 	int maxCal;
 } Plano;
@@ -32,7 +32,7 @@ typedef struct Plano {
 typedef struct Dieta {
 	int numPaciente;
 	char data[M];
-	char ref[M];
+	Refeicao refeicao;
 	char ali[M];
 	int cal;
 } Dieta;
@@ -49,7 +49,7 @@ typedef struct Paciente {
 typedef struct MediaCalorias {
 	int numPaciente;
 	float mediaCal;
-	char ref[M];
+	Refeicao refeicao;
 } MediaCalorias;
 
 
@@ -67,9 +67,9 @@ int DietaPaciente(Dieta dietas[], char filename[]);
 int NumPacientesCalMais(Plano planos[], int tamPlanos, Dieta dietas[], int tamDietas);
 
 // Lista o Plano por refeicao de um paciente
-int ListarPlanoPorRefeicao(Plano planos[], Plano detalhes[], int tamPlanos, int numPaciente, char refeicao[]);
+int ListarPlanoPorRefeicao(Plano planos[], Plano detalhes[], int tamPlanos, int numPaciente, Refeicao refeicao);
 
-int calcularMediaCalorias(Dieta dietas[], int numDietas, Paciente pacientes[], int numPacientes, char refeicao[], MediaCalorias mc[]);
+int calcularMediaCalorias(Dieta dietas[], int numDietas, Paciente pacientes[], int numPacientes, Refeicao refeicao, MediaCalorias mc[]);
 
 // Conta o nº de pacientes que ultrapassaram um limite de calorias
 int NumPacientesPassaLim(Dieta dietas[], int tamDietas, int calMax, char dataMin[], char dataMax);

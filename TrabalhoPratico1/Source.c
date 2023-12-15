@@ -33,16 +33,15 @@ int main() {
 
 	pacientes;
 
-/*ListarPlanoPorRefeicao(planos, detalhes, 3, 1, "pequeno almoço");
+	ListarPlanoPorRefeicao(planos, detalhes, 3, 1, 0);
 		printf("Paciente: %d\n",detalhes[0].numPaciente);
 		printf("Refeicao: %s\n", detalhes[0].refeicao);
 		printf("Data: %s\n", detalhes[0].data);
 		printf("Minimo Calorias: %d\n", detalhes[0].minCal);
 		printf("Maximo Calorias: %d\n", detalhes[0].maxCal);
-	*/
 
 
-	calcularMediaCalorias(dietas, 4, pacientes, 3, "pequeno almoço", mediacal);
+	calcularMediaCalorias(dietas, 4, pacientes, 3, PequenoAlmoco, mediacal);
 	mediacal;
 
 
