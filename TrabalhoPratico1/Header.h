@@ -14,7 +14,7 @@
 #define N 25
 #define M 50
 
-//Struct do plano nutricional
+// Struct do plano nutricional
 typedef struct Plano {
 	int numPaciente;
 	char data[N];
@@ -31,7 +31,7 @@ typedef struct Dieta {
 	int cal;
 } Dieta;
 
-//struct da informação do Paciente
+// struct da informação do Paciente
 typedef struct Paciente {
 	int numPaciente;
 	char nome[N];
@@ -39,22 +39,26 @@ typedef struct Paciente {
 	Plano planos[N];
 } Paciente;
 
-//Importa pacientes de um ficheiro CSV
+// Importa pacientes de um ficheiro CSV
 int ImportarPacientes(Paciente pacientes[], char filename[]);
 
-//Importa planos nutricionais de um ficheiro CSV
+// Importa planos nutricionais de um ficheiro CSV
 int ImportarPlanos(Plano planos[], char filename[], Paciente pacientes[]);
 
-//Importa dietas de um ficheiro CSV
+// Importa dietas de um ficheiro CSV
 int DietaPaciente(Dieta dietas[], char filename[]);
 
-//Conta o nº de pacientes que ultrapassaram o limite de calorias
+// Conta o nº de pacientes que ultrapassaram o limite de calorias
 int NumPacientesCalMais(Plano planos[], int tamPlanos, Dieta dietas[], int tamDietas);
 
 // Lista o Plano por refeicao de um paciente
 int ListarPlanoPorRefeicao(Plano planos[], Plano detalhes[], int tamPlanos, int numPaciente, char refeicao[]);
+
+// Conta o nº de pacientes que ultrapassaram um limite de calorias
 int NumPacientesPassaLim(Dieta dietas[], int tamDietas, int calMax, char dataMin[], char dataMax);
 
+// Verifica se um paciente com o mesmo nº existe num array
 bool ExisteNmrPaciente(Paciente pacientes[], int tamPacientes, int numPaciente);
 
+// Lista por ordem decrescente os pacientes que ultrapassaram os limites do plano
 int ListaPacientesCalMais(Plano planos[], int tamPlanos, Dieta dietas[], int tamDietas, Paciente pacientes[], int tamPacientes, Paciente arrayOrdPacientes[]);

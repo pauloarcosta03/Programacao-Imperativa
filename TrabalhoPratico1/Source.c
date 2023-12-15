@@ -28,7 +28,7 @@ int main() {
 	// Supondo que você já tenha importado os planos nutricionais usando a função ImportarPlanos
 	Paciente pacientesOrd[N];
 
-	result = ListaPacientesCalMais(planos, 3, dietas, 4, pacientes, 3, pacientesOrd);
+	int result = ListaPacientesCalMais(planos, 3, dietas, 4, pacientes, 3, pacientesOrd);
 
 	pacientes;
 
