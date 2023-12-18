@@ -125,6 +125,24 @@ int ImportarPlanos(Plano planos[], char filename[], Paciente pacientes[]) {
 #pragma endregion
 
 /// <summary>
+/// Converte time_t para string
+/// </summary>
+/// <param name="data"></param>
+/// <param name="dataString"></param>
+/// <param name="tamString"></param>
+/// <returns></returns>
+int ConverteData(time_t data, char dataString[], int tamString) {
+
+	//converte data numa struct
+	struct tm *dataStruct = localtime(&data);
+
+	//traduz a struct numa string
+	if(strftime(dataString, tamString, "%d/%m/%Y", dataStruct) == 0) return 0;
+
+	return 1;
+}
+
+/// <summary>
 /// Conta o nº de pacientes que ultrapassaram um limite de calorias
 /// </summary>
 /// <param name="dietas"></param>

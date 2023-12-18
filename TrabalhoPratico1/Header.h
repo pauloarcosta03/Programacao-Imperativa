@@ -65,6 +65,9 @@ int ImportarPlanos(Plano planos[], char filename[], Paciente pacientes[]);
 // Importa dietas de um ficheiro CSV
 int DietaPaciente(Dieta dietas[], char filename[]);
 
+//Converte time_t para string
+int ConverteData(time_t data, char dataString[], int tamString);
+
 // Conta o nº de pacientes que ultrapassaram o limite de calorias
 int NumPacientesCalMais(Plano planos[], int tamPlanos, Dieta dietas[], int tamDietas);
 

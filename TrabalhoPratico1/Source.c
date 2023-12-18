@@ -35,6 +35,11 @@ int main() {
 
 	ListarPlanoPorRefeicao(planos, detalhes, 3, 1, 0);
 
+	char dataInicio[N];
+	ConverteData(detalhes[0].dataInicio, dataInicio, sizeof(dataInicio));
+
+	printf("data: %s", dataInicio);
+
 	calcularMediaCalorias(dietas, 4, pacientes, 3, PequenoAlmoco, mediacal);
 	
 
