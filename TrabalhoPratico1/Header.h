@@ -68,12 +68,10 @@ int DietaPaciente(Dieta dietas[], char filename[]);
 //Converte time_t para string
 int ConverteData(time_t data, char dataString[], int tamString);
 
-// Conta o nº de pacientes que ultrapassaram o limite de calorias
-int NumPacientesCalMais(Plano planos[], int tamPlanos, Dieta dietas[], int tamDietas);
-
 // Lista o Plano por refeicao de um paciente
 int ListarPlanoPorRefeicao(Plano planos[], Plano detalhes[], int tamPlanos, int numPaciente, Refeicao refeicao);
 
+//Calcula media das calorias de uma refeição
 int calcularMediaCalorias(Dieta dietas[], int numDietas, Paciente pacientes[], int numPacientes, Refeicao refeicao, MediaCalorias mc[]);
 
 // Conta o nº de pacientes que ultrapassaram um limite de calorias

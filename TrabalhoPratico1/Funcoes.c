@@ -14,6 +14,7 @@
 #include <string.h>
 #include "Header.h"
 
+// TÓPICO 1
 #pragma region IMPORTAÇÕES
 /// <summary>
 /// Importa pacientes de um ficheiro CSV
@@ -142,6 +143,8 @@ int ConverteData(time_t data, char dataString[], int tamString) {
 	return 1;
 }
 
+//TÓPICO 2
+
 /// <summary>
 /// Conta o nº de pacientes que ultrapassaram um limite de calorias
 /// </summary>
@@ -160,6 +163,8 @@ int NumPacientesPassaLim(Dieta dietas[], int tamDietas, int calMax, char dataMin
 	}
 	return pacientesCalMais;
 }
+
+//TÓPICO 3
 
 /// <summary>
 /// Conta o nº de pacientes que ultrapassaram o limite de calorias do plano
@@ -204,6 +209,7 @@ int ListaPacientesCalMais(Plano planos[], int tamPlanos, Dieta dietas[], int tam
 		}
 	}
 
+	//ordena por ordem decrescente
 	for (int i = 0; i < posArray + 1; i++)
 	{
 		for (int j = 0; j < tamPacientes; j++) {
@@ -286,7 +292,18 @@ int ListarPlanoPorRefeicao(Plano planos[], Plano detalhes[], int tamPlanos, int 
 
 }
 
+//TÓPICO 5
 
+/// <summary>
+/// Calcula media das calorias de uma refeição
+/// </summary>
+/// <param name="dietas"></param>
+/// <param name="numDietas"></param>
+/// <param name="pacientes"></param>
+/// <param name="numPacientes"></param>
+/// <param name="refeicao"></param>
+/// <param name="mc"></param>
+/// <returns></returns>
 int calcularMediaCalorias(Dieta dietas[], int numDietas, Paciente pacientes[], int numPacientes, Refeicao refeicao, MediaCalorias mc[]) {
 	double somaCalorias = 0;
 	int numRefeicoes = 0;
