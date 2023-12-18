@@ -71,11 +71,33 @@ int ImportarPlanos(Plano planos[], char filename[], Paciente pacientes[]) {
 	fp = fopen(filename, "r");
 	if (fp == NULL) return 0;
 
+	char dataInicioString[N];
+	char dataFimString[N];
+
+	struct tm dataInicio = {0};
+	struct tm dataFim = {0};
+
 	int i = 0;
 	while (1)
 	{
 		
-		fscanf(fp, "%d;%[^;];%d;%d;%d\n", &planos[i].numPaciente, planos[i].data, &planos[i].refeicao, &planos[i].minCal, &planos[i].maxCal);
+		fscanf(fp, "%d;%[^;];%[^;];%d;%d;%d\n", &planos[i].numPaciente, dataInicioString, dataFimString, &planos[i].refeicao, &planos[i].minCal, &planos[i].maxCal);
+
+		//converte as strings struct tm
+		sscanf(dataInicioString, "%d/%d/%d", &dataInicio.tm_mday, &dataInicio.tm_mon, &dataInicio.tm_year);
+		sscanf(dataFimString, "%d/%d/%d", &dataFim.tm_mday, &dataFim.tm_mon, &dataFim.tm_year);
+
+		//ajusta os valores para os valores esperados na struct tm
+		dataInicio.tm_mon -= 1; //Para o mês ficar 0-11
+		dataInicio.tm_year -= 1900; //Para o ano começar em 1900
+
+		dataFim.tm_mon -= 1; //Para o mês ficar 0-11
+		dataFim.tm_year -= 1900; //Para o ano começar em 1900
+
+		//converter para a variável time_t
+		planos[i].dataInicio = mktime(&dataInicio);
+		planos[i].dataFim = mktime(&dataFim);
+
 		//AssociaPlano(planos[i], pacientes);
 		if (feof(fp)) break;
 		i++;
@@ -217,8 +239,9 @@ int ListarPlanoPorRefeicao(Plano planos[], Plano detalhes[], int tamPlanos, int 
 	int contaDetalhes = 0;
 	for (int i = 0; i < tamPlanos; i++) {
 		if (planos[i].numPaciente == numPaciente && planos[i].refeicao == refeicao) {
-			strcpy(detalhes[contaDetalhes].data, planos[i].data);
 			detalhes[contaDetalhes].numPaciente = planos[i].numPaciente;
+			detalhes[contaDetalhes].dataInicio = planos[i].dataInicio;
+			detalhes[contaDetalhes].dataFim = planos[i].dataFim;
 			detalhes[contaDetalhes].minCal = planos[i].minCal;
 			detalhes[contaDetalhes].maxCal = planos[i].maxCal;
 			detalhes[contaDetalhes].refeicao = planos[i].refeicao;

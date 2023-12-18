@@ -10,6 +10,7 @@
 #pragma once
 
 #include <stdbool.h>
+#include <time.h>
 
 #define N 25
 #define M 50
@@ -23,10 +24,11 @@ typedef enum Refeicao {
 // Struct do plano nutricional
 typedef struct Plano {
 	int numPaciente;
-	char data[N];
 	Refeicao refeicao;
 	int minCal;
 	int maxCal;
+	time_t dataInicio;
+	time_t dataFim;
 } Plano;
 
 typedef struct Dieta {
@@ -35,6 +37,7 @@ typedef struct Dieta {
 	Refeicao refeicao;
 	char ali[M];
 	int cal;
+	//time_t data;
 } Dieta;
 
 // struct da informação do Paciente
