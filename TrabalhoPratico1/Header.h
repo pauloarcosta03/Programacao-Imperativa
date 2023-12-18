@@ -33,11 +33,10 @@ typedef struct Plano {
 
 typedef struct Dieta {
 	int numPaciente;
-	char data[M];
 	Refeicao refeicao;
 	char ali[M];
 	int cal;
-	//time_t data;
+	time_t data;
 } Dieta;
 
 // struct da informação do Paciente

@@ -48,10 +48,25 @@ int DietaPaciente(Dieta dietas[], char filename[]) {
 	fp = fopen(filename, "r");
 	if (fp == NULL) return 0;
 
+	char dataString[N];
+
+	struct tm data = { 0 };
+
 	int i = 0;
 	while (1)
 	{
-		fscanf(fp, "%d;%[^;];%d;%[^;];%d", &dietas[i].numPaciente, dietas[i].data, &dietas[i].refeicao, dietas[i].ali, &dietas[i].cal);
+		fscanf(fp, "%d;%[^;];%d;%[^;];%d", &dietas[i].numPaciente, dataString, &dietas[i].refeicao, dietas[i].ali, &dietas[i].cal);
+
+		//converte as strings struct tm
+		sscanf(dataString, "%d/%d/%d", &data.tm_mday, &data.tm_mon, &data.tm_year);
+
+		//ajusta os valores para os valores esperados na struct tm
+		data.tm_mon -= 1; //Para o mês ficar 0-11
+		data.tm_year -= 1900; //Para o ano começar em 1900
+
+		//converter para a variável time_t
+		dietas[i].data = mktime(&data);
+
 		if (feof(fp)) break;
 		i++;
 	}
@@ -71,9 +86,11 @@ int ImportarPlanos(Plano planos[], char filename[], Paciente pacientes[]) {
 	fp = fopen(filename, "r");
 	if (fp == NULL) return 0;
 
+	//strings que serão recebidas para depois converter para time_t
 	char dataInicioString[N];
 	char dataFimString[N];
 
+	//structs tm auxiliares para converter para time_t
 	struct tm dataInicio = {0};
 	struct tm dataFim = {0};
 
