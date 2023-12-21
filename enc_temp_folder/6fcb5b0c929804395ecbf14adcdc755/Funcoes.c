@@ -180,7 +180,8 @@ time_t ConverteDataTimet(char dataString[]) {
 /// <param name="dietas"></param>
 /// <param name="tamDietas"></param>
 /// <param name="calMax"></param>
-/// <param name="dataDieta"></param>
+/// <param name="dataMin"></param>
+/// <param name="dataMax"></param>
 /// <returns></returns>
 int NumPacientesPassaLim(Dieta dietas[], int tamDietas, int calMax, time_t dataDieta) {
 	int pacientesCalMais = 0;
@@ -305,8 +306,6 @@ int AssociaPlano(Plano plano, Paciente pacientes[]) {
 /// <param name="tamPlanos"></param>
 /// <param name="numPaciente"></param>
 /// <param name="refeicao"></param>
-/// <param name="dataMin"></param>
-/// <param name="dataMax"></param>
 /// <returns></returns>
 int ListarPlanoPorRefeicao(Plano planos[], Plano detalhes[], int tamPlanos, int numPaciente, Refeicao refeicao, time_t dataMin, time_t dataMax) {
 	int contaDetalhes = 0;
@@ -335,8 +334,6 @@ int ListarPlanoPorRefeicao(Plano planos[], Plano detalhes[], int tamPlanos, int 
 /// <param name="numPacientes"></param>
 /// <param name="refeicao"></param>
 /// <param name="mc"></param>
-/// <param name="dataMin"></param>
-/// <param name="dataMax"></param>
 /// <returns></returns>
 int calcularMediaCalorias(Dieta dietas[], int numDietas, Paciente pacientes[], int numPacientes, Refeicao refeicao, MediaCalorias mc[], time_t dataMin, time_t dataMax) {
 	double somaCalorias = 0;

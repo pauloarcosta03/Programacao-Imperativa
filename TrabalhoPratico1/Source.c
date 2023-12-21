@@ -37,4 +37,8 @@ int main() {
 	ListarPlanoPorRefeicao(planos, detalhes, 3, 1, PequenoAlmoco, ConverteDataTimet("1/1/2023"), ConverteDataTimet("2/1/2023"));
 
 	detalhes;
+
+	MediaCalorias mc[N];
+	calcularMediaCalorias(dietas, 4, pacientes, 3, PequenoAlmoco, mc, ConverteDataTimet("1/1/2023"), ConverteDataTimet("2/1/2023"));
+	mc;
 }
