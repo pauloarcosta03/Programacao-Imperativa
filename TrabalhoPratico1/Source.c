@@ -32,4 +32,9 @@ int main() {
 	ListaPacientesCalMais(planos, 3, dietas, 4, pacientes, 3, pacientesOrd);
 
 	pacientesOrd;
+
+	Plano detalhes[N];
+	ListarPlanoPorRefeicao(planos, detalhes, 3, 1, PequenoAlmoco, ConverteDataTimet("1/1/2023"), ConverteDataTimet("2/1/2023"));
+
+	detalhes;
 }

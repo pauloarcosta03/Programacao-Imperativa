@@ -72,7 +72,7 @@ int ConverteDataString(time_t data, char dataString[], int tamString);
 time_t ConverteDataTimet(char dataString[]);
 
 // Lista o Plano por refeicao de um paciente
-int ListarPlanoPorRefeicao(Plano planos[], Plano detalhes[], int tamPlanos, int numPaciente, Refeicao refeicao);
+int ListarPlanoPorRefeicao(Plano planos[], Plano detalhes[], int tamPlanos, int numPaciente, Refeicao refeicao, time_t dataMin, time_t dataMax);
 
 //Calcula media das calorias de uma refeição
 int calcularMediaCalorias(Dieta dietas[], int numDietas, Paciente pacientes[], int numPacientes, Refeicao refeicao, MediaCalorias mc[]);

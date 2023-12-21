@@ -296,6 +296,8 @@ int AssociaPlano(Plano plano, Paciente pacientes[]) {
 	return 0;
 }
 
+//TÓPICO 4
+
 /// <summary>
 /// Lista plano por refeicao
 /// </summary>
@@ -305,10 +307,10 @@ int AssociaPlano(Plano plano, Paciente pacientes[]) {
 /// <param name="numPaciente"></param>
 /// <param name="refeicao"></param>
 /// <returns></returns>
-int ListarPlanoPorRefeicao(Plano planos[], Plano detalhes[], int tamPlanos, int numPaciente, Refeicao refeicao) {
+int ListarPlanoPorRefeicao(Plano planos[], Plano detalhes[], int tamPlanos, int numPaciente, Refeicao refeicao, time_t dataMin, time_t dataMax) {
 	int contaDetalhes = 0;
 	for (int i = 0; i < tamPlanos; i++) {
-		if (planos[i].numPaciente == numPaciente && planos[i].refeicao == refeicao) {
+		if (planos[i].numPaciente == numPaciente && planos[i].refeicao == refeicao && dataMin <= planos[i].dataInicio && dataMax >= planos[i].dataFim) {
 			detalhes[contaDetalhes].numPaciente = planos[i].numPaciente;
 			detalhes[contaDetalhes].dataInicio = planos[i].dataInicio;
 			detalhes[contaDetalhes].dataFim = planos[i].dataFim;
