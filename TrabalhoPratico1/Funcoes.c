@@ -125,6 +125,7 @@ int ImportarPlanos(Plano planos[], char filename[], Paciente pacientes[]) {
 }
 #pragma endregion
 
+#pragma region CONVERSÕES DATA
 /// <summary>
 /// Converte time_t para string
 /// </summary>
@@ -132,7 +133,7 @@ int ImportarPlanos(Plano planos[], char filename[], Paciente pacientes[]) {
 /// <param name="dataString"></param>
 /// <param name="tamString"></param>
 /// <returns></returns>
-int ConverteData(time_t data, char dataString[], int tamString) {
+int ConverteDataString(time_t data, char dataString[], int tamString) {
 
 	//converte data numa struct
 	struct tm *dataStruct = localtime(&data);
@@ -143,10 +144,38 @@ int ConverteData(time_t data, char dataString[], int tamString) {
 	return 1;
 }
 
+/// <summary>
+/// Converte string para time_t
+/// </summary>
+/// <param name="data"></param>
+/// <param name="dataString"></param>
+/// <param name="tamString"></param>
+/// <returns></returns>
+time_t ConverteDataTimet(char dataString[]) {
+
+	//converte data numa struct
+	struct tm dataStruct = { 0 };
+
+	time_t data;
+
+	//converte as strings struct tm
+	sscanf(dataString, "%d/%d/%d", &dataStruct.tm_mday, &dataStruct.tm_mon, &dataStruct.tm_year);
+
+	//ajusta os valores para os valores esperados na struct tm
+	dataStruct.tm_mon -= 1; //Para o mês ficar 0-11
+	dataStruct.tm_year -= 1900; //Para o ano começar em 1900
+
+	//converter para a variável time_t
+	data = mktime(&dataStruct);
+
+	return data;
+}
+#pragma endregion
+
 //TÓPICO 2
 
 /// <summary>
-/// Conta o nº de pacientes que ultrapassaram um limite de calorias
+/// Conta o nº de pacientes que ultrapassaram um limite de calorias num determinado dia
 /// </summary>
 /// <param name="dietas"></param>
 /// <param name="tamDietas"></param>
@@ -154,12 +183,12 @@ int ConverteData(time_t data, char dataString[], int tamString) {
 /// <param name="dataMin"></param>
 /// <param name="dataMax"></param>
 /// <returns></returns>
-int NumPacientesPassaLim(Dieta dietas[], int tamDietas, int calMax, char dataMin[], char dataMax) {
+int NumPacientesPassaLim(Dieta dietas[], int tamDietas, int calMax, time_t dataDieta) {
 	int pacientesCalMais = 0;
 	//Corre as dietas
 	for (int i = 0; i < tamDietas; i++)
 	{
-		if (dietas[i].cal > calMax) pacientesCalMais++;
+		if (dietas[i].cal > calMax && dietas[i].data == dataDieta) pacientesCalMais++;
 	}
 	return pacientesCalMais;
 }

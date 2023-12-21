@@ -66,7 +66,10 @@ int ImportarPlanos(Plano planos[], char filename[], Paciente pacientes[]);
 int DietaPaciente(Dieta dietas[], char filename[]);
 
 //Converte time_t para string
-int ConverteData(time_t data, char dataString[], int tamString);
+int ConverteDataString(time_t data, char dataString[], int tamString);
+
+//Converte string para time_t
+time_t ConverteDataTimet(char dataString[]);
 
 // Lista o Plano por refeicao de um paciente
 int ListarPlanoPorRefeicao(Plano planos[], Plano detalhes[], int tamPlanos, int numPaciente, Refeicao refeicao);
@@ -75,7 +78,7 @@ int ListarPlanoPorRefeicao(Plano planos[], Plano detalhes[], int tamPlanos, int 
 int calcularMediaCalorias(Dieta dietas[], int numDietas, Paciente pacientes[], int numPacientes, Refeicao refeicao, MediaCalorias mc[]);
 
 // Conta o nº de pacientes que ultrapassaram um limite de calorias
-int NumPacientesPassaLim(Dieta dietas[], int tamDietas, int calMax, char dataMin[], char dataMax);
+int NumPacientesPassaLim(Dieta dietas[], int tamDietas, int calMax, time_t dataDieta);
 
 // Verifica se um paciente com o mesmo nº existe num array
 bool ExisteNmrPaciente(Paciente pacientes[], int tamPacientes, int numPaciente);

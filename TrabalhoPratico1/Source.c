@@ -15,7 +15,6 @@ int main() {
 	Paciente pacientes[N];
 	Plano planos[N];
 	Dieta dietas[N];
-	Plano detalhes[N];
 	MediaCalorias mediacal[N];
 
 	ImportarPacientes(pacientes, "Pacientes1.csv");
@@ -24,25 +23,8 @@ int main() {
 
 	DietaPaciente(dietas, "Dietas1.csv");
 
-	/*printf("Existem %d pacientes que ultrapassaram o limite máximo de calorias numa refeição.\n", NumPacientesCalMais(planos, 3, dietas, 4));*/
+	int result = NumPacientesPassaLim(dietas, 4, 119, dietas[2].data);
 
-	// Supondo que você já tenha importado os planos nutricionais usando a função ImportarPlanos
-	Paciente pacientesOrd[N];
-
-	int result = ListaPacientesCalMais(planos, 3, dietas, 4, pacientes, 3, pacientesOrd);
-
-	pacientes;
-
-	ListarPlanoPorRefeicao(planos, detalhes, 3, 1, 0);
-
-	char dataInicio[N];
-	ConverteData(detalhes[0].dataInicio, dataInicio, sizeof(dataInicio));
-
-	printf("data: %s", dataInicio);
-
-	calcularMediaCalorias(dietas, 4, pacientes, 3, PequenoAlmoco, mediacal);
-	
-
-
+	result;
 
 }
