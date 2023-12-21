@@ -218,7 +218,7 @@ int ListaPacientesCalMais(Plano planos[], int tamPlanos, Dieta dietas[], int tam
 		//Corre as dietas (para somar todas as calorias)
 		for (int j = 0; j < tamDietas; j++)
 		{
-			if (planos[i].numPaciente == dietas[j].numPaciente && planos[i].refeicao == dietas[j].refeicao)
+			if (planos[i].numPaciente == dietas[j].numPaciente && planos[i].refeicao == dietas[j].refeicao && planos[i].dataInicio <= dietas[j].data && planos[i].dataFim >= dietas[j].data)
 			{
 				calPaciente = calPaciente + dietas[j].cal;
 			}
@@ -226,7 +226,7 @@ int ListaPacientesCalMais(Plano planos[], int tamPlanos, Dieta dietas[], int tam
 
 
 		//corre os pacientes ignorando os duplicados(para guardar o paciente certo no array)
-		if ((calPaciente > planos[i].maxCal || calPaciente < planos[i].minCal) && ExisteNmrPaciente(pacientes, tamPacientes, planos[i].numPaciente)) {
+		if ((calPaciente > planos[i].maxCal || calPaciente < planos[i].minCal) && calPaciente != 0 && ExisteNmrPaciente(pacientes, tamPacientes, planos[i].numPaciente)) {
 			for (int p = 0; p < tamPacientes; p++)
 			{
 				if (planos[i].numPaciente == pacientes[p].numPaciente && !ExisteNmrPaciente(arrayOrdPacientes, posArray+1, planos[i].numPaciente)) {

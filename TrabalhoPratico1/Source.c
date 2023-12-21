@@ -27,4 +27,9 @@ int main() {
 
 	result;
 
+	Paciente pacientesOrd[N];
+
+	ListaPacientesCalMais(planos, 3, dietas, 4, pacientes, 3, pacientesOrd);
+
+	pacientesOrd;
 }
