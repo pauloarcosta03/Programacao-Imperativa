@@ -55,7 +55,6 @@ typedef struct MediaCalorias {
 } MediaCalorias;
 
 
-//Importa pacientes de um ficheiro CSV
 // Importa pacientes de um ficheiro CSV
 int ImportarPacientes(Paciente pacientes[], char filename[]);
 
@@ -85,3 +84,9 @@ bool ExisteNmrPaciente(Paciente pacientes[], int tamPacientes, int numPaciente);
 
 // Lista por ordem decrescente os pacientes que ultrapassaram os limites do plano
 int ListaPacientesCalMais(Plano planos[], int tamPlanos, Dieta dietas[], int tamDietas, Paciente pacientes[], int tamPacientes, Paciente arrayOrdPacientes[]);
+
+// Desenha a tabela para cada dieta com plano associado registada
+void TabelaDietas(Dieta dietas[], int tamDietas, Paciente pacientes[], int tamPacientes, Plano planos[], int tamPlanos);
+
+// Converte enum refeição para string
+int ConverteRefeicaoString(int refeicao, char refeicaoString[]);

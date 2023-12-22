@@ -41,4 +41,6 @@ int main() {
 	MediaCalorias mc[N];
 	calcularMediaCalorias(dietas, 4, pacientes, 3, PequenoAlmoco, mc, ConverteDataTimet("1/1/2023"), ConverteDataTimet("2/1/2023"));
 	mc;
+
+	TabelaDietas(dietas, 4, pacientes, 3, planos, 3);
 }

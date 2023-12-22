@@ -125,7 +125,7 @@ int ImportarPlanos(Plano planos[], char filename[], Paciente pacientes[]) {
 }
 #pragma endregion
 
-#pragma region CONVERSÕES DATA
+#pragma region CONVERSÕES
 /// <summary>
 /// Converte time_t para string
 /// </summary>
@@ -169,6 +169,20 @@ time_t ConverteDataTimet(char dataString[]) {
 	data = mktime(&dataStruct);
 
 	return data;
+}
+
+/// <summary>
+/// Converte enum refeição para string
+/// </summary>
+/// <param name="refeicao"></param>
+/// <param name="refeicaoString"></param>
+/// <returns></returns>
+int ConverteRefeicaoString(int refeicao, char refeicaoString[]) {
+	if (refeicao == 0) strcpy(refeicaoString, "PA");
+	if (refeicao == 1) strcpy(refeicaoString, "A");
+	if (refeicao == 2) strcpy(refeicaoString, "J");
+
+	return 1;
 }
 #pragma endregion
 
@@ -366,4 +380,95 @@ int calcularMediaCalorias(Dieta dietas[], int numDietas, Paciente pacientes[], i
 		}
 	}
 
+}
+
+//TÓPICO 6
+
+/// <summary>
+/// Desenha a tabela para cada dieta com plano associado registada
+/// </summary>
+/// <param name="dietas"></param>
+/// <param name="tamDietas"></param>
+/// <param name="pacientes"></param>
+/// <param name="tamPacientes"></param>
+/// <param name="planos"></param>
+/// <param name="tamPlanos"></param>
+void TabelaDietas(Dieta dietas[], int tamDietas, Paciente pacientes[], int tamPacientes, Plano planos[], int tamPlanos) {
+
+	Paciente pacienteTemp;
+	Plano planoTemp;
+	int caloriasRefeicao = 0;
+
+	char refeicao[N];
+	char dataInicio[N];
+	char dataFim[N];
+
+	bool saltarDieta = false;
+	bool temPlano = false;
+
+	//Escreve o cabeçalho da tabela
+	printf("+---------------------------------------------------------------------------------------------------------------------------------------------------------------+\n");
+	printf("|	NP	|	Paciente	|	Refeicao	|	Data Inicio	|	Data Fim	|	Min	|	Max	|	Consumo	|\n");
+	printf("|---------------------------------------------------------------------------------------------------------------------------------------------------------------|\n");
+
+
+	for (int i = 0; i < tamDietas; i++)
+	{
+		caloriasRefeicao += dietas[i].cal;
+
+		//Se existir outra dieta no mesmo dia e na mesma refeicao, incrementa calorias
+		for (int j = 0; j < tamDietas; j++)
+		{
+			if (dietas[i].numPaciente == dietas[j].numPaciente && dietas[i].refeicao == dietas[j].refeicao && dietas[i].data == dietas[j].data)
+			{
+				if (i == j) continue;
+
+				//Se já escreveu esta linha, salta para a próxima
+				if (i > j) {
+					saltarDieta = true;
+					break;
+				}
+				caloriasRefeicao += dietas[j].cal;
+			}
+		}
+
+		//Procura as infos do paciente na dieta atual
+		for (int j = 0; j < tamPacientes; j++)
+		{
+			if (dietas[i].numPaciente == pacientes[j].numPaciente) {
+				pacienteTemp = pacientes[j];
+				break;
+			}
+		}
+
+		temPlano = false;
+		//Procura as infos do plano a que corresponde a dieta
+		for (int j = 0; j < tamPlanos; j++)
+		{
+			if (dietas[i].numPaciente == planos[j].numPaciente && dietas[i].refeicao == planos[j].refeicao && planos[j].dataInicio <= dietas[i].data && planos[j].dataFim >= dietas[i].data) {
+				planoTemp = planos[j];
+				temPlano = true;
+				break;
+			} 
+		}
+
+		// salta para a proxima linha caso já tenha escrito esta dieta ou a dieta não tenha plano associado
+		if (saltarDieta || !temPlano) {
+			saltarDieta = false;
+			caloriasRefeicao = 0;
+			continue;
+		}
+
+		// converte a refeição para string para ser mostrada
+		ConverteRefeicaoString(dietas[i].refeicao, refeicao);
+
+		//organiza as datas para dia/mes/ano
+		ConverteDataString(planoTemp.dataInicio, dataInicio, N);
+
+		ConverteDataString(planoTemp.dataFim, dataFim, N);
+
+		printf("|	%d	|	%s		|	%s		|	%s	|	%s	|	%d	|	%d	|	%d	|\n", dietas[i].numPaciente, pacienteTemp.nome, refeicao, dataInicio, dataFim, planoTemp.minCal, planoTemp.maxCal, caloriasRefeicao);
+		caloriasRefeicao = 0;
+	}
+	printf("+---------------------------------------------------------------------------------------------------------------------------------------------------------------+\n");
 }
