@@ -1,0 +1,5 @@
+var searchData=
+[
+  ['listapacientescalmais_0',['listapacientescalmais',['../_funcoes_8c.html#a6bcd0dbf4865d3bd93f1042bf4cb4dde',1,'ListaPacientesCalMais(Plano planos[], int tamPlanos, Dieta dietas[], int tamDietas, Paciente pacientes[], int tamPacientes, Paciente arrayOrdPacientes[]):&#160;Funcoes.c'],['../_header_8h.html#a6bcd0dbf4865d3bd93f1042bf4cb4dde',1,'ListaPacientesCalMais(Plano planos[], int tamPlanos, Dieta dietas[], int tamDietas, Paciente pacientes[], int tamPacientes, Paciente arrayOrdPacientes[]):&#160;Funcoes.c']]],
+  ['listarplanoporrefeicao_1',['listarplanoporrefeicao',['../_funcoes_8c.html#ac5f9984dd97df52e551c9dc17f7485e7',1,'ListarPlanoPorRefeicao(Plano planos[], Plano detalhes[], int tamPlanos, int numPaciente, Refeicao refeicao, time_t dataMin, time_t dataMax):&#160;Funcoes.c'],['../_header_8h.html#ac5f9984dd97df52e551c9dc17f7485e7',1,'ListarPlanoPorRefeicao(Plano planos[], Plano detalhes[], int tamPlanos, int numPaciente, Refeicao refeicao, time_t dataMin, time_t dataMax):&#160;Funcoes.c']]]
+];
