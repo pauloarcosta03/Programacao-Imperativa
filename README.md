@@ -12,7 +12,7 @@ Laboratórios de Informática
 
 ## organização
 
-[doc/](./doc/d-04/)  documentação
+[doc/](TrabalhoPratico1/doc/d-04/)  documentação
 
 ## introdução
 
