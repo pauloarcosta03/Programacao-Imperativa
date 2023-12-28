@@ -5,10 +5,10 @@ Licenciatura em Engenharia de Sistemas Informáticos 2023-24
 Laboratórios de Informática
 
 ## grupo  *04*
-| Número | Nome |
-| 26017   | David Lopes |
-| 29851     | Paulo Costa  |
-| 27981     | Afonso Ferreira  |
+| Número | Nome |<br>
+| 26017   | David Lopes |<br>
+| 29851     | Paulo Costa  |<br>
+| 27981     | Afonso Ferreira  |<br>
 
 ## organização
 
@@ -20,11 +20,11 @@ Neste Trabalho Prático será realizado um código e a respetiva documentação,
 
 ## divisão de tarefas
 
-| Tarefa | Nome |
-| Criação do repositório | Paulo Costa |
-| Criação da documentação | David Lopes |
-| Criação do ficheiro README.md | Afonso Ferreira |
-| Desenvolvimento do Código | Paulo Costa, David Lopes, Afonso Ferreira |
+| Tarefa | Nome |<br>
+| Criação do repositório | Paulo Costa |<br>
+| Criação da documentação | David Lopes |<br>
+| Criação do ficheiro README.md | Afonso Ferreira |<br>
+| Desenvolvimento do Código | Paulo Costa, David Lopes, Afonso Ferreira |<br>
 
 ## Comandos bash utilizados
 
