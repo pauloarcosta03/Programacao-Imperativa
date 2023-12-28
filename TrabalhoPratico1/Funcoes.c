@@ -203,12 +203,22 @@ int ConverteRefeicaoString(int refeicao, char refeicaoString[]) {
 /// <param name="calMax"></param>
 /// <param name="dataDieta"></param>
 /// <returns></returns>
-int NumPacientesPassaLim(Dieta dietas[], int tamDietas, int calMax, time_t dataDieta) {
+int NumPacientesPassaLim(Dieta dietas[], int tamDietas, Paciente pacientes[], int tamPacientes, int calMax, time_t dataDieta) {
 	int pacientesCalMais = 0;
-	//Corre as dietas
-	for (int i = 0; i < tamDietas; i++)
+	int calPaciente = 0;
+	//Corre todas as dietas de um paciente
+	for (int i = 0; i < tamPacientes; i++)
 	{
-		if (dietas[i].cal > calMax && dietas[i].data == dataDieta) pacientesCalMais++;
+		calPaciente = 0;
+
+		for (int j = 0; j < tamDietas; j++)
+		{
+			if (dietas[j].numPaciente == pacientes[i].numPaciente && dietas[i].data == dataDieta)
+			{
+				calPaciente += dietas[j].cal;
+			}
+		}
+		if (calPaciente > calMax) pacientesCalMais++;
 	}
 	return pacientesCalMais;
 }

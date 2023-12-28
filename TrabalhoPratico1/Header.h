@@ -84,7 +84,7 @@ int ListarPlanoPorRefeicao(Plano planos[], Plano detalhes[], int tamPlanos, int 
 int calcularMediaCalorias(Dieta dietas[], int numDietas, Paciente pacientes[], int numPacientes, Refeicao refeicao, MediaCalorias mc[], time_t dataMin, time_t dataMax);
 
 // Conta o nº de pacientes que ultrapassaram um limite de calorias
-int NumPacientesPassaLim(Dieta dietas[], int tamDietas, int calMax, time_t dataDieta);
+int NumPacientesPassaLim(Dieta dietas[], int tamDietas, Paciente pacientes[], int tamPacientes, int calMax, time_t dataDieta);
 
 // Verifica se um paciente com o mesmo nº existe num array
 bool ExisteNmrPaciente(Paciente pacientes[], int tamPacientes, int numPaciente);
