@@ -106,9 +106,9 @@
 {\s153\fi-360\li5040\widctlpar\fs20\cgrid \sbasedon0 \snext153 \sautoupd List Enum 13;}
 }
 {\info 
-{\title {\comment Documenta\'E7\'E3o Trabalho Pr\'E1tico  {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\title {\comment LESI_PI_TP_26017_29851_27981  {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 1.0 \par
-}}Documenta\'E7\'E3o Trabalho Pr\'E1tico}
+}}LESI_PI_TP_26017_29851_27981}
 {\comment Gerado por doxygen 1.9.8.}
 }\pard\plain 
 \sectd\pgnlcrm
@@ -116,7 +116,7 @@
 \pard\plain \s16\qc\sa60\widctlpar\outlinelevel1\adjustright \f1\cgrid 
 \vertalc\qc\par\par\par\par\par\par\par
 \pard\plain \s15\qc\sb240\sa60\widctlpar\outlinelevel0\adjustright \b\f1\fs32\kerning28\cgrid 
-{\field\fldedit {\*\fldinst TITLE \\*MERGEFORMAT}{\fldrslt Documenta\'E7\'E3o Trabalho Pr\'E1tico}}\par
+{\field\fldedit {\*\fldinst TITLE \\*MERGEFORMAT}{\fldrslt LESI_PI_TP_26017_29851_27981}}\par
 \pard\plain \s16\qc\sa60\widctlpar\outlinelevel1\adjustright \f1\cgrid 
 \par
 \par\par\par\par\par\par\par\par\par\par\par\par
@@ -576,7 +576,7 @@ Converte enum refei\'E7\'E3o para string. }{
 }\par
 }\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
-int {\b NumPacientesPassaLim} ({\b Dieta} dietas[], int tamDietas, int calMax, time_t dataDieta)\par
+int {\b NumPacientesPassaLim} ({\b Dieta} dietas[], int tamDietas, {\b Paciente} pacientes[], int tamPacientes, int calMax, time_t dataDieta)\par
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Conta o n\'BA de pacientes que ultrapassaram um limite de calorias num determinado dia. }{
@@ -621,7 +621,7 @@ Calcula media das calorias de uma refei\'E7\'E3o. }{
 void {\b TabelaDietas} ({\b Dieta} dietas[], int tamDietas, {\b Paciente} pacientes[], int tamPacientes, {\b Plano} planos[], int tamPlanos)\par
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Desenha a tabela para cada dieta com plano associado registada. }{
+Desenha a tabela para cada dieta com plano associado registada (FULLSCREEN) }{
 }\par
 }\par}
 }
@@ -661,24 +661,24 @@ Par\'E2metros\par}
 {\row }
 }
 }{
-\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 300                                                     \{\par
-301     {\cf19 for} ({\cf18 int} i = 0; i < N; i++)\par
-302     \{\par
-303         {\cf19 if}(plano.numPaciente == pacientes[i].numPaciente) \{\par
-304             {\cf20 //Procura um sitio vazio no array de planos para preencher com um plano novo}\par
-305             {\cf19 for} ({\cf18 int} j = 0; j < N; j++)\par
-306             \{\par
-307                 {\cf19 if} (pacientes[i].planos[j].numPaciente <= 0)\par
-308                 \{\par
-309                     pacientes[i].planos[j] = plano;\par
-310                     {\cf19 return} 1;\par
-311                 \}\par
-312             \}\par
-313             {\cf19 return} 0;\par
-314         \}\par
-315     \}\par
-316     {\cf19 return} 0;\par
-317 \}\par
+\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 310                                                     \{\par
+311     {\cf19 for} ({\cf18 int} i = 0; i < N; i++)\par
+312     \{\par
+313         {\cf19 if}(plano.numPaciente == pacientes[i].numPaciente) \{\par
+314             {\cf20 //Procura um sitio vazio no array de planos para preencher com um plano novo}\par
+315             {\cf19 for} ({\cf18 int} j = 0; j < N; j++)\par
+316             \{\par
+317                 {\cf19 if} (pacientes[i].planos[j].numPaciente <= 0)\par
+318                 \{\par
+319                     pacientes[i].planos[j] = plano;\par
+320                     {\cf19 return} 1;\par
+321                 \}\par
+322             \}\par
+323             {\cf19 return} 0;\par
+324         \}\par
+325     \}\par
+326     {\cf19 return} 0;\par
+327 \}\par
 }
 }
 {\xe \v calcularMediaCalorias\:Funcoes.c}
@@ -752,35 +752,35 @@ Par\'E2metros\par}
 Retorna\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
 \par
 }}}{
-\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 362                                                                                                                                                                         \{\par
-363     {\cf18 double} somaCalorias = 0;\par
-364     {\cf18 int} numRefeicoes = 0;\par
-365 \par
-366     {\cf18 int} posMedia = 0;\par
-367 \par
-368     {\cf19 for} ({\cf18 int} j = 0; j < numPacientes; j++)\par
-369     \{\par
-370 \par
-371         {\cf20 // Calcule a soma das calorias para a refei\'E7\'E3o e paciente espec\'EDficos}\par
-372         {\cf19 for} ({\cf18 int} i = 0; i < numDietas; i++) \{\par
-373             {\cf19 if} (dietas[i].numPaciente == pacientes[j].numPaciente && dietas[i].refeicao == refeicao && dietas[i].data >= dataMin && dietas[i].data <= dataMax) \{\par
-374                 somaCalorias += dietas[i].cal;\par
-375                 numRefeicoes++;\par
-376             \}\par
-377         \}\par
-378 \par
-379         {\cf20 // Calcule a m\'E9dia de calorias se houver pelo menos uma refei\'E7\'E3o}\par
-380         {\cf19 if} (numRefeicoes > 0) \{\par
-381             mc[posMedia].numPaciente = pacientes[j].numPaciente;\par
-382             mc[posMedia].mediaCal = somaCalorias/numRefeicoes;\par
-383             mc[posMedia].refeicao = refeicao;\par
-384 \par
-385             numRefeicoes = 0;\par
-386             posMedia++;\par
+\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 372                                                                                                                                                                         \{\par
+373     {\cf18 double} somaCalorias = 0;\par
+374     {\cf18 int} numRefeicoes = 0;\par
+375 \par
+376     {\cf18 int} posMedia = 0;\par
+377 \par
+378     {\cf19 for} ({\cf18 int} j = 0; j < numPacientes; j++)\par
+379     \{\par
+380 \par
+381         {\cf20 // Calcule a soma das calorias para a refei\'E7\'E3o e paciente espec\'EDficos}\par
+382         {\cf19 for} ({\cf18 int} i = 0; i < numDietas; i++) \{\par
+383             {\cf19 if} (dietas[i].numPaciente == pacientes[j].numPaciente && dietas[i].refeicao == refeicao && dietas[i].data >= dataMin && dietas[i].data <= dataMax) \{\par
+384                 somaCalorias += dietas[i].cal;\par
+385                 numRefeicoes++;\par
+386             \}\par
 387         \}\par
-388     \}\par
-389 \par
-390 \}\par
+388 \par
+389         {\cf20 // Calcule a m\'E9dia de calorias se houver pelo menos uma refei\'E7\'E3o}\par
+390         {\cf19 if} (numRefeicoes > 0) \{\par
+391             mc[posMedia].numPaciente = pacientes[j].numPaciente;\par
+392             mc[posMedia].mediaCal = somaCalorias/numRefeicoes;\par
+393             mc[posMedia].refeicao = refeicao;\par
+394 \par
+395             numRefeicoes = 0;\par
+396             posMedia++;\par
+397         \}\par
+398     \}\par
+399 \par
+400 \}\par
 }
 }
 {\xe \v ConverteDataString\:Funcoes.c}
@@ -1050,15 +1050,15 @@ Par\'E2metros\par}
 Retorna\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
 \par
 }}}{
-\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 285                                                                                 \{\par
-286 \par
-287     {\cf19 for} ({\cf18 int} i = 0; i < tamPacientes; i++)\par
-288     \{\par
-289         {\cf19 if} (pacientes[i].numPaciente == numPaciente) {\cf19 return} {\cf17 true};\par
-290     \}\par
-291 \par
-292     {\cf19 return} {\cf17 false};\par
-293 \}\par
+\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 295                                                                                 \{\par
+296 \par
+297     {\cf19 for} ({\cf18 int} i = 0; i < tamPacientes; i++)\par
+298     \{\par
+299         {\cf19 if} (pacientes[i].numPaciente == numPaciente) {\cf19 return} {\cf17 true};\par
+300     \}\par
+301 \par
+302     {\cf19 return} {\cf17 false};\par
+303 \}\par
 }
 }
 {\xe \v ImportarPacientes\:Funcoes.c}
@@ -1244,57 +1244,57 @@ Par\'E2metros\par}
 Retorna\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
 \par
 }}}{
-\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 226                                                                                                                                                               \{\par
-227     {\cf18 int} pacientesCalMais = 0;\par
-228 \par
-229     {\cf18 int} posArray = 0;\par
-230 \par
-231     {\cf18 int} calPaciente = 0;\par
-232     \par
-233     {\cf20 //Corre os planos}\par
-234     {\cf19 for} ({\cf18 int} i = 0; i < tamPlanos; i++)\par
-235     \{\par
-236         calPaciente = 0;\par
-237         \par
-238         {\cf20 //Corre as dietas (para somar todas as calorias)}\par
-239         {\cf19 for} ({\cf18 int} j = 0; j < tamDietas; j++)\par
-240         \{\par
-241             {\cf19 if} (planos[i].numPaciente == dietas[j].numPaciente && planos[i].refeicao == dietas[j].refeicao && planos[i].dataInicio <= dietas[j].data && planos[i].dataFim >= dietas[j].data)\par
-242             \{\par
-243                 calPaciente = calPaciente + dietas[j].cal;\par
-244             \}\par
-245         \}\par
-246 \par
-247 \par
-248         {\cf20 //corre os pacientes ignorando os duplicados(para guardar o paciente certo no array)}\par
-249         {\cf19 if} ((calPaciente > planos[i].maxCal || calPaciente < planos[i].minCal) && calPaciente != 0 && ExisteNmrPaciente(pacientes, tamPacientes, planos[i].numPaciente)) \{\par
-250             {\cf19 for} ({\cf18 int} p = 0; p < tamPacientes; p++)\par
-251             \{\par
-252                 {\cf19 if} (planos[i].numPaciente == pacientes[p].numPaciente && !ExisteNmrPaciente(arrayOrdPacientes, posArray+1, planos[i].numPaciente)) \{\par
-253                     arrayOrdPacientes[posArray] = pacientes[p];\par
-254                     posArray++;\par
-255                     {\cf19 break};\par
-256                 \}\par
-257             \}\par
-258         \}\par
-259     \}\par
-260 \par
-261     {\cf20 //ordena por ordem decrescente}\par
-262     {\cf19 for} ({\cf18 int} i = 0; i < posArray + 1; i++)\par
-263     \{\par
-264         {\cf19 for} ({\cf18 int} j = 0; j < tamPacientes; j++) \{\par
-265             {\cf19 if} (arrayOrdPacientes[i].numPaciente > arrayOrdPacientes[j].numPaciente)\par
-266             \{\par
-267                 Paciente aux = arrayOrdPacientes[i];\par
-268                 arrayOrdPacientes[i] = arrayOrdPacientes[j];\par
-269                 arrayOrdPacientes[j] = aux;\par
-270             \}\par
-271         \}\par
-272     \}\par
-273 \par
-274     {\cf20 //pacientes;}\par
-275     {\cf19 return} pacientesCalMais;\par
-276 \}\par
+\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 236                                                                                                                                                               \{\par
+237     {\cf18 int} pacientesCalMais = 0;\par
+238 \par
+239     {\cf18 int} posArray = 0;\par
+240 \par
+241     {\cf18 int} calPaciente = 0;\par
+242     \par
+243     {\cf20 //Corre os planos}\par
+244     {\cf19 for} ({\cf18 int} i = 0; i < tamPlanos; i++)\par
+245     \{\par
+246         calPaciente = 0;\par
+247         \par
+248         {\cf20 //Corre as dietas (para somar todas as calorias)}\par
+249         {\cf19 for} ({\cf18 int} j = 0; j < tamDietas; j++)\par
+250         \{\par
+251             {\cf19 if} (planos[i].numPaciente == dietas[j].numPaciente && planos[i].refeicao == dietas[j].refeicao && planos[i].dataInicio <= dietas[j].data && planos[i].dataFim >= dietas[j].data)\par
+252             \{\par
+253                 calPaciente = calPaciente + dietas[j].cal;\par
+254             \}\par
+255         \}\par
+256 \par
+257 \par
+258         {\cf20 //corre os pacientes ignorando os duplicados(para guardar o paciente certo no array)}\par
+259         {\cf19 if} ((calPaciente > planos[i].maxCal || calPaciente < planos[i].minCal) && calPaciente != 0 && ExisteNmrPaciente(pacientes, tamPacientes, planos[i].numPaciente)) \{\par
+260             {\cf19 for} ({\cf18 int} p = 0; p < tamPacientes; p++)\par
+261             \{\par
+262                 {\cf19 if} (planos[i].numPaciente == pacientes[p].numPaciente && !ExisteNmrPaciente(arrayOrdPacientes, posArray+1, planos[i].numPaciente)) \{\par
+263                     arrayOrdPacientes[posArray] = pacientes[p];\par
+264                     posArray++;\par
+265                     {\cf19 break};\par
+266                 \}\par
+267             \}\par
+268         \}\par
+269     \}\par
+270 \par
+271     {\cf20 //ordena por ordem decrescente}\par
+272     {\cf19 for} ({\cf18 int} i = 0; i < posArray + 1; i++)\par
+273     \{\par
+274         {\cf19 for} ({\cf18 int} j = 0; j < tamPacientes; j++) \{\par
+275             {\cf19 if} (arrayOrdPacientes[i].numPaciente > arrayOrdPacientes[j].numPaciente)\par
+276             \{\par
+277                 Paciente aux = arrayOrdPacientes[i];\par
+278                 arrayOrdPacientes[i] = arrayOrdPacientes[j];\par
+279                 arrayOrdPacientes[j] = aux;\par
+280             \}\par
+281         \}\par
+282     \}\par
+283 \par
+284     {\cf20 //pacientes;}\par
+285     {\cf19 return} pacientesCalMais;\par
+286 \}\par
 }
 }
 {\xe \v ListarPlanoPorRefeicao\:Funcoes.c}
@@ -1362,28 +1362,28 @@ Par\'E2metros\par}
 Retorna\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
 \par
 }}}{
-\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 332                                                                                                                                                 \{\par
-333     {\cf18 int} contaDetalhes = 0;\par
-334     {\cf19 for} ({\cf18 int} i = 0; i < tamPlanos; i++) \{\par
-335         {\cf19 if} (planos[i].numPaciente == numPaciente && planos[i].refeicao == refeicao && dataMin <= planos[i].dataInicio && dataMax >= planos[i].dataFim) \{\par
-336             detalhes[contaDetalhes].numPaciente = planos[i].numPaciente;\par
-337             detalhes[contaDetalhes].dataInicio = planos[i].dataInicio;\par
-338             detalhes[contaDetalhes].dataFim = planos[i].dataFim;\par
-339             detalhes[contaDetalhes].minCal = planos[i].minCal;\par
-340             detalhes[contaDetalhes].maxCal = planos[i].maxCal;\par
-341             detalhes[contaDetalhes].refeicao = planos[i].refeicao;\par
-342             contaDetalhes++;\par
-343         \}\par
-344     \}{\cf19 return} 1;\par
-345 \par
-346 \}\par
+\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 342                                                                                                                                                 \{\par
+343     {\cf18 int} contaDetalhes = 0;\par
+344     {\cf19 for} ({\cf18 int} i = 0; i < tamPlanos; i++) \{\par
+345         {\cf19 if} (planos[i].numPaciente == numPaciente && planos[i].refeicao == refeicao && dataMin <= planos[i].dataInicio && dataMax >= planos[i].dataFim) \{\par
+346             detalhes[contaDetalhes].numPaciente = planos[i].numPaciente;\par
+347             detalhes[contaDetalhes].dataInicio = planos[i].dataInicio;\par
+348             detalhes[contaDetalhes].dataFim = planos[i].dataFim;\par
+349             detalhes[contaDetalhes].minCal = planos[i].minCal;\par
+350             detalhes[contaDetalhes].maxCal = planos[i].maxCal;\par
+351             detalhes[contaDetalhes].refeicao = planos[i].refeicao;\par
+352             contaDetalhes++;\par
+353         \}\par
+354     \}{\cf19 return} 1;\par
+355 \par
+356 \}\par
 }
 }
 {\xe \v NumPacientesPassaLim\:Funcoes.c}
 {\xe \v Funcoes.c\:NumPacientesPassaLim}
 \pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
 {\b 
-int NumPacientesPassaLim ({\b Dieta}  {\i dietas}[], int  {\i tamDietas}, int  {\i calMax}, time_t  {\i dataDieta})}}
+int NumPacientesPassaLim ({\b Dieta}  {\i dietas}[], int  {\i tamDietas}, {\b Paciente}  {\i pacientes}[], int  {\i tamPacientes}, int  {\i calMax}, time_t  {\i dataDieta})}}
 \par
 {\bkmkstart AAAAAAAAAN}
 {\bkmkend AAAAAAAAAN}
@@ -1426,15 +1426,25 @@ Par\'E2metros\par}
 Retorna\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
 \par
 }}}{
-\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 206                                                                                       \{\par
+\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 206                                                                                                                               \{\par
 207     {\cf18 int} pacientesCalMais = 0;\par
-208     {\cf20 //Corre as dietas}\par
-209     {\cf19 for} ({\cf18 int} i = 0; i < tamDietas; i++)\par
-210     \{\par
-211         {\cf19 if} (dietas[i].cal > calMax && dietas[i].data == dataDieta) pacientesCalMais++;\par
-212     \}\par
-213     {\cf19 return} pacientesCalMais;\par
-214 \}\par
+208     {\cf18 int} calPaciente = 0;\par
+209     {\cf20 //Corre todas as dietas de um paciente}\par
+210     {\cf19 for} ({\cf18 int} i = 0; i < tamPacientes; i++)\par
+211     \{\par
+212         calPaciente = 0;\par
+213 \par
+214         {\cf19 for} ({\cf18 int} j = 0; j < tamDietas; j++)\par
+215         \{\par
+216             {\cf19 if} (dietas[j].numPaciente == pacientes[i].numPaciente && dietas[i].data == dataDieta)\par
+217             \{\par
+218                 calPaciente += dietas[j].cal;\par
+219             \}\par
+220         \}\par
+221         {\cf19 if} (calPaciente > calMax) pacientesCalMais++;\par
+222     \}\par
+223     {\cf19 return} pacientesCalMais;\par
+224 \}\par
 }
 }
 {\xe \v TabelaDietas\:Funcoes.c}
@@ -1450,7 +1460,7 @@ void TabelaDietas ({\b Dieta}  {\i dietas}[], int  {\i tamDietas}, {\b Paciente}
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Desenha a tabela para cada dieta com plano associado registada. }}\par
+Desenha a tabela para cada dieta com plano associado registada (FULLSCREEN) }}\par
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 {\par
 {\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
@@ -1493,85 +1503,85 @@ Par\'E2metros\par}
 {\row }
 }
 }{
-\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 403                                                                                                                         \{\par
-404 \par
-405     Paciente pacienteTemp;\par
-406     Plano planoTemp;\par
-407     {\cf18 int} caloriasRefeicao = 0;\par
-408 \par
-409     {\cf18 char} refeicao[N];\par
-410     {\cf18 char} dataInicio[N];\par
-411     {\cf18 char} dataFim[N];\par
-412 \par
-413     {\cf18 bool} saltarDieta = {\cf17 false};\par
-414     {\cf18 bool} temPlano = {\cf17 false};\par
-415 \par
-416     {\cf20 //Escreve o cabe\'E7alho da tabela}\par
-417     printf({\cf22 "+---------------------------------------------------------------------------------------------------------------------------------------------------------------+\\n"});\par
-418     printf({\cf22 "|   NP  |   Paciente    |   Refeicao    |   Data Inicio |   Data Fim    |   Min |   Max |   Consumo |\\n"});\par
-419     printf({\cf22 "|---------------------------------------------------------------------------------------------------------------------------------------------------------------|\\n"});\par
-420 \par
-421 \par
-422     {\cf19 for} ({\cf18 int} i = 0; i < tamDietas; i++)\par
-423     \{\par
-424         caloriasRefeicao += dietas[i].cal;\par
+\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 413                                                                                                                         \{\par
+414 \par
+415     Paciente pacienteTemp;\par
+416     Plano planoTemp;\par
+417     {\cf18 int} caloriasRefeicao = 0;\par
+418 \par
+419     {\cf18 char} refeicao[N];\par
+420     {\cf18 char} dataInicio[N];\par
+421     {\cf18 char} dataFim[N];\par
+422 \par
+423     {\cf18 bool} saltarDieta = {\cf17 false};\par
+424     {\cf18 bool} temPlano = {\cf17 false};\par
 425 \par
-426         {\cf20 //Se existir outra dieta no mesmo dia e na mesma refeicao, incrementa calorias}\par
-427         {\cf19 for} ({\cf18 int} j = 0; j < tamDietas; j++)\par
-428         \{\par
-429             {\cf19 if} (dietas[i].numPaciente == dietas[j].numPaciente && dietas[i].refeicao == dietas[j].refeicao && dietas[i].data == dietas[j].data)\par
-430             \{\par
-431                 {\cf19 if} (i == j) {\cf19 continue};\par
-432 \par
-433                 {\cf20 //Se j\'E1 escreveu esta linha, salta para a pr\'F3xima}\par
-434                 {\cf19 if} (i > j) \{\par
-435                     saltarDieta = {\cf17 true};\par
-436                     {\cf19 break};\par
-437                 \}\par
-438                 caloriasRefeicao += dietas[j].cal;\par
-439             \}\par
-440         \}\par
-441 \par
-442         {\cf20 //Procura as infos do paciente na dieta atual}\par
-443         {\cf19 for} ({\cf18 int} j = 0; j < tamPacientes; j++)\par
-444         \{\par
-445             {\cf19 if} (dietas[i].numPaciente == pacientes[j].numPaciente) \{\par
-446                 pacienteTemp = pacientes[j];\par
-447                 {\cf19 break};\par
-448             \}\par
-449         \}\par
-450 \par
-451         temPlano = {\cf17 false};\par
-452         {\cf20 //Procura as infos do plano a que corresponde a dieta}\par
-453         {\cf19 for} ({\cf18 int} j = 0; j < tamPlanos; j++)\par
+426     {\cf20 //Escreve o cabe\'E7alho da tabela}\par
+427     printf({\cf22 "+---------------------------------------------------------------------------------------------------------------------------------------------------------------+\\n"});\par
+428     printf({\cf22 "|   NP  |   Paciente    |   Refeicao    |   Data Inicio |   Data Fim    |   Min |   Max |   Consumo |\\n"});\par
+429     printf({\cf22 "|---------------------------------------------------------------------------------------------------------------------------------------------------------------|\\n"});\par
+430 \par
+431 \par
+432     {\cf19 for} ({\cf18 int} i = 0; i < tamDietas; i++)\par
+433     \{\par
+434         caloriasRefeicao += dietas[i].cal;\par
+435 \par
+436         {\cf20 //Se existir outra dieta no mesmo dia e na mesma refeicao, incrementa calorias}\par
+437         {\cf19 for} ({\cf18 int} j = 0; j < tamDietas; j++)\par
+438         \{\par
+439             {\cf19 if} (dietas[i].numPaciente == dietas[j].numPaciente && dietas[i].refeicao == dietas[j].refeicao && dietas[i].data == dietas[j].data)\par
+440             \{\par
+441                 {\cf19 if} (i == j) {\cf19 continue};\par
+442 \par
+443                 {\cf20 //Se j\'E1 escreveu esta linha, salta para a pr\'F3xima}\par
+444                 {\cf19 if} (i > j) \{\par
+445                     saltarDieta = {\cf17 true};\par
+446                     {\cf19 break};\par
+447                 \}\par
+448                 caloriasRefeicao += dietas[j].cal;\par
+449             \}\par
+450         \}\par
+451 \par
+452         {\cf20 //Procura as infos do paciente na dieta atual}\par
+453         {\cf19 for} ({\cf18 int} j = 0; j < tamPacientes; j++)\par
 454         \{\par
-455             {\cf19 if} (dietas[i].numPaciente == planos[j].numPaciente && dietas[i].refeicao == planos[j].refeicao && planos[j].dataInicio <= dietas[i].data && planos[j].dataFim >= dietas[i].data) \{\par
-456                 planoTemp = planos[j];\par
-457                 temPlano = {\cf17 true};\par
-458                 {\cf19 break};\par
-459             \} \par
-460         \}\par
-461 \par
-462         {\cf20 // salta para a proxima linha caso j\'E1 tenha escrito esta dieta ou a dieta n\'E3o tenha plano associado}\par
-463         {\cf19 if} (saltarDieta || !temPlano) \{\par
-464             saltarDieta = {\cf17 false};\par
-465             caloriasRefeicao = 0;\par
-466             {\cf19 continue};\par
-467         \}\par
-468 \par
-469         {\cf20 // converte a refei\'E7\'E3o para string para ser mostrada}\par
-470         ConverteRefeicaoString(dietas[i].refeicao, refeicao);\par
+455             {\cf19 if} (dietas[i].numPaciente == pacientes[j].numPaciente) \{\par
+456                 pacienteTemp = pacientes[j];\par
+457                 {\cf19 break};\par
+458             \}\par
+459         \}\par
+460 \par
+461         temPlano = {\cf17 false};\par
+462         {\cf20 //Procura as infos do plano a que corresponde a dieta}\par
+463         {\cf19 for} ({\cf18 int} j = 0; j < tamPlanos; j++)\par
+464         \{\par
+465             {\cf19 if} (dietas[i].numPaciente == planos[j].numPaciente && dietas[i].refeicao == planos[j].refeicao && planos[j].dataInicio <= dietas[i].data && planos[j].dataFim >= dietas[i].data) \{\par
+466                 planoTemp = planos[j];\par
+467                 temPlano = {\cf17 true};\par
+468                 {\cf19 break};\par
+469             \} \par
+470         \}\par
 471 \par
-472         {\cf20 //organiza as datas para dia/mes/ano}\par
-473         ConverteDataString(planoTemp.dataInicio, dataInicio, N);\par
-474 \par
-475         ConverteDataString(planoTemp.dataFim, dataFim, N);\par
-476 \par
-477         printf({\cf22 "|   %d  |   %s      |   %s      |   %s  |   %s  |   %d  |   %d  |   %d  |\\n"}, dietas[i].numPaciente, pacienteTemp.nome, refeicao, dataInicio, dataFim, planoTemp.minCal, planoTemp.maxCal, caloriasRefeicao);\par
-478         caloriasRefeicao = 0;\par
-479     \}\par
-480     printf({\cf22 "+---------------------------------------------------------------------------------------------------------------------------------------------------------------+\\n"});\par
-481 \}\par
+472         {\cf20 // salta para a proxima linha caso j\'E1 tenha escrito esta dieta ou a dieta n\'E3o tenha plano associado}\par
+473         {\cf19 if} (saltarDieta || !temPlano) \{\par
+474             saltarDieta = {\cf17 false};\par
+475             caloriasRefeicao = 0;\par
+476             {\cf19 continue};\par
+477         \}\par
+478 \par
+479         {\cf20 // converte a refei\'E7\'E3o para string para ser mostrada}\par
+480         ConverteRefeicaoString(dietas[i].refeicao, refeicao);\par
+481 \par
+482         {\cf20 //organiza as datas para dia/mes/ano}\par
+483         ConverteDataString(planoTemp.dataInicio, dataInicio, N);\par
+484 \par
+485         ConverteDataString(planoTemp.dataFim, dataFim, N);\par
+486 \par
+487         printf({\cf22 "|   %d  |   %s      |   %s      |   %s  |   %s  |   %d  |   %d  |   %d  |\\n"}, dietas[i].numPaciente, pacienteTemp.nome, refeicao, dataInicio, dataFim, planoTemp.minCal, planoTemp.maxCal, caloriasRefeicao);\par
+488         caloriasRefeicao = 0;\par
+489     \}\par
+490     printf({\cf22 "+---------------------------------------------------------------------------------------------------------------------------------------------------------------+\\n"});\par
+491 \}\par
 }
 }
 \par \pard\plain 
@@ -1693,7 +1703,7 @@ Calcula media das calorias de uma refei\'E7\'E3o. }{
 }\par
 }\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
-int {\b NumPacientesPassaLim} ({\b Dieta} dietas[], int tamDietas, int calMax, time_t dataDieta)\par
+int {\b NumPacientesPassaLim} ({\b Dieta} dietas[], int tamDietas, {\b Paciente} pacientes[], int tamPacientes, int calMax, time_t dataDieta)\par
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Conta o n\'BA de pacientes que ultrapassaram um limite de calorias num determinado dia. }{
@@ -1717,7 +1727,7 @@ Conta o n\'BA de pacientes que ultrapassaram o limite de calorias do plano. }{
 void {\b TabelaDietas} ({\b Dieta} dietas[], int tamDietas, {\b Paciente} pacientes[], int tamPacientes, {\b Plano} planos[], int tamPlanos)\par
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Desenha a tabela para cada dieta com plano associado registada. }{
+Desenha a tabela para cada dieta com plano associado registada (FULLSCREEN) }{
 }\par
 }\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
@@ -1933,35 +1943,35 @@ Par\'E2metros\par}
 Retorna\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
 \par
 }}}{
-\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 362                                                                                                                                                                         \{\par
-363     {\cf18 double} somaCalorias = 0;\par
-364     {\cf18 int} numRefeicoes = 0;\par
-365 \par
-366     {\cf18 int} posMedia = 0;\par
-367 \par
-368     {\cf19 for} ({\cf18 int} j = 0; j < numPacientes; j++)\par
-369     \{\par
-370 \par
-371         {\cf20 // Calcule a soma das calorias para a refei\'E7\'E3o e paciente espec\'EDficos}\par
-372         {\cf19 for} ({\cf18 int} i = 0; i < numDietas; i++) \{\par
-373             {\cf19 if} (dietas[i].numPaciente == pacientes[j].numPaciente && dietas[i].refeicao == refeicao && dietas[i].data >= dataMin && dietas[i].data <= dataMax) \{\par
-374                 somaCalorias += dietas[i].cal;\par
-375                 numRefeicoes++;\par
-376             \}\par
-377         \}\par
-378 \par
-379         {\cf20 // Calcule a m\'E9dia de calorias se houver pelo menos uma refei\'E7\'E3o}\par
-380         {\cf19 if} (numRefeicoes > 0) \{\par
-381             mc[posMedia].numPaciente = pacientes[j].numPaciente;\par
-382             mc[posMedia].mediaCal = somaCalorias/numRefeicoes;\par
-383             mc[posMedia].refeicao = refeicao;\par
-384 \par
-385             numRefeicoes = 0;\par
-386             posMedia++;\par
+\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 372                                                                                                                                                                         \{\par
+373     {\cf18 double} somaCalorias = 0;\par
+374     {\cf18 int} numRefeicoes = 0;\par
+375 \par
+376     {\cf18 int} posMedia = 0;\par
+377 \par
+378     {\cf19 for} ({\cf18 int} j = 0; j < numPacientes; j++)\par
+379     \{\par
+380 \par
+381         {\cf20 // Calcule a soma das calorias para a refei\'E7\'E3o e paciente espec\'EDficos}\par
+382         {\cf19 for} ({\cf18 int} i = 0; i < numDietas; i++) \{\par
+383             {\cf19 if} (dietas[i].numPaciente == pacientes[j].numPaciente && dietas[i].refeicao == refeicao && dietas[i].data >= dataMin && dietas[i].data <= dataMax) \{\par
+384                 somaCalorias += dietas[i].cal;\par
+385                 numRefeicoes++;\par
+386             \}\par
 387         \}\par
-388     \}\par
-389 \par
-390 \}\par
+388 \par
+389         {\cf20 // Calcule a m\'E9dia de calorias se houver pelo menos uma refei\'E7\'E3o}\par
+390         {\cf19 if} (numRefeicoes > 0) \{\par
+391             mc[posMedia].numPaciente = pacientes[j].numPaciente;\par
+392             mc[posMedia].mediaCal = somaCalorias/numRefeicoes;\par
+393             mc[posMedia].refeicao = refeicao;\par
+394 \par
+395             numRefeicoes = 0;\par
+396             posMedia++;\par
+397         \}\par
+398     \}\par
+399 \par
+400 \}\par
 }
 }
 {\xe \v ConverteDataString\:Header.h}
@@ -2231,15 +2241,15 @@ Par\'E2metros\par}
 Retorna\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
 \par
 }}}{
-\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 285                                                                                 \{\par
-286 \par
-287     {\cf19 for} ({\cf18 int} i = 0; i < tamPacientes; i++)\par
-288     \{\par
-289         {\cf19 if} (pacientes[i].numPaciente == numPaciente) {\cf19 return} {\cf17 true};\par
-290     \}\par
-291 \par
-292     {\cf19 return} {\cf17 false};\par
-293 \}\par
+\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 295                                                                                 \{\par
+296 \par
+297     {\cf19 for} ({\cf18 int} i = 0; i < tamPacientes; i++)\par
+298     \{\par
+299         {\cf19 if} (pacientes[i].numPaciente == numPaciente) {\cf19 return} {\cf17 true};\par
+300     \}\par
+301 \par
+302     {\cf19 return} {\cf17 false};\par
+303 \}\par
 }
 }
 {\xe \v ImportarPacientes\:Header.h}
@@ -2425,57 +2435,57 @@ Par\'E2metros\par}
 Retorna\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
 \par
 }}}{
-\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 226                                                                                                                                                               \{\par
-227     {\cf18 int} pacientesCalMais = 0;\par
-228 \par
-229     {\cf18 int} posArray = 0;\par
-230 \par
-231     {\cf18 int} calPaciente = 0;\par
-232     \par
-233     {\cf20 //Corre os planos}\par
-234     {\cf19 for} ({\cf18 int} i = 0; i < tamPlanos; i++)\par
-235     \{\par
-236         calPaciente = 0;\par
-237         \par
-238         {\cf20 //Corre as dietas (para somar todas as calorias)}\par
-239         {\cf19 for} ({\cf18 int} j = 0; j < tamDietas; j++)\par
-240         \{\par
-241             {\cf19 if} (planos[i].numPaciente == dietas[j].numPaciente && planos[i].refeicao == dietas[j].refeicao && planos[i].dataInicio <= dietas[j].data && planos[i].dataFim >= dietas[j].data)\par
-242             \{\par
-243                 calPaciente = calPaciente + dietas[j].cal;\par
-244             \}\par
-245         \}\par
-246 \par
-247 \par
-248         {\cf20 //corre os pacientes ignorando os duplicados(para guardar o paciente certo no array)}\par
-249         {\cf19 if} ((calPaciente > planos[i].maxCal || calPaciente < planos[i].minCal) && calPaciente != 0 && ExisteNmrPaciente(pacientes, tamPacientes, planos[i].numPaciente)) \{\par
-250             {\cf19 for} ({\cf18 int} p = 0; p < tamPacientes; p++)\par
-251             \{\par
-252                 {\cf19 if} (planos[i].numPaciente == pacientes[p].numPaciente && !ExisteNmrPaciente(arrayOrdPacientes, posArray+1, planos[i].numPaciente)) \{\par
-253                     arrayOrdPacientes[posArray] = pacientes[p];\par
-254                     posArray++;\par
-255                     {\cf19 break};\par
-256                 \}\par
-257             \}\par
-258         \}\par
-259     \}\par
-260 \par
-261     {\cf20 //ordena por ordem decrescente}\par
-262     {\cf19 for} ({\cf18 int} i = 0; i < posArray + 1; i++)\par
-263     \{\par
-264         {\cf19 for} ({\cf18 int} j = 0; j < tamPacientes; j++) \{\par
-265             {\cf19 if} (arrayOrdPacientes[i].numPaciente > arrayOrdPacientes[j].numPaciente)\par
-266             \{\par
-267                 Paciente aux = arrayOrdPacientes[i];\par
-268                 arrayOrdPacientes[i] = arrayOrdPacientes[j];\par
-269                 arrayOrdPacientes[j] = aux;\par
-270             \}\par
-271         \}\par
-272     \}\par
-273 \par
-274     {\cf20 //pacientes;}\par
-275     {\cf19 return} pacientesCalMais;\par
-276 \}\par
+\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 236                                                                                                                                                               \{\par
+237     {\cf18 int} pacientesCalMais = 0;\par
+238 \par
+239     {\cf18 int} posArray = 0;\par
+240 \par
+241     {\cf18 int} calPaciente = 0;\par
+242     \par
+243     {\cf20 //Corre os planos}\par
+244     {\cf19 for} ({\cf18 int} i = 0; i < tamPlanos; i++)\par
+245     \{\par
+246         calPaciente = 0;\par
+247         \par
+248         {\cf20 //Corre as dietas (para somar todas as calorias)}\par
+249         {\cf19 for} ({\cf18 int} j = 0; j < tamDietas; j++)\par
+250         \{\par
+251             {\cf19 if} (planos[i].numPaciente == dietas[j].numPaciente && planos[i].refeicao == dietas[j].refeicao && planos[i].dataInicio <= dietas[j].data && planos[i].dataFim >= dietas[j].data)\par
+252             \{\par
+253                 calPaciente = calPaciente + dietas[j].cal;\par
+254             \}\par
+255         \}\par
+256 \par
+257 \par
+258         {\cf20 //corre os pacientes ignorando os duplicados(para guardar o paciente certo no array)}\par
+259         {\cf19 if} ((calPaciente > planos[i].maxCal || calPaciente < planos[i].minCal) && calPaciente != 0 && ExisteNmrPaciente(pacientes, tamPacientes, planos[i].numPaciente)) \{\par
+260             {\cf19 for} ({\cf18 int} p = 0; p < tamPacientes; p++)\par
+261             \{\par
+262                 {\cf19 if} (planos[i].numPaciente == pacientes[p].numPaciente && !ExisteNmrPaciente(arrayOrdPacientes, posArray+1, planos[i].numPaciente)) \{\par
+263                     arrayOrdPacientes[posArray] = pacientes[p];\par
+264                     posArray++;\par
+265                     {\cf19 break};\par
+266                 \}\par
+267             \}\par
+268         \}\par
+269     \}\par
+270 \par
+271     {\cf20 //ordena por ordem decrescente}\par
+272     {\cf19 for} ({\cf18 int} i = 0; i < posArray + 1; i++)\par
+273     \{\par
+274         {\cf19 for} ({\cf18 int} j = 0; j < tamPacientes; j++) \{\par
+275             {\cf19 if} (arrayOrdPacientes[i].numPaciente > arrayOrdPacientes[j].numPaciente)\par
+276             \{\par
+277                 Paciente aux = arrayOrdPacientes[i];\par
+278                 arrayOrdPacientes[i] = arrayOrdPacientes[j];\par
+279                 arrayOrdPacientes[j] = aux;\par
+280             \}\par
+281         \}\par
+282     \}\par
+283 \par
+284     {\cf20 //pacientes;}\par
+285     {\cf19 return} pacientesCalMais;\par
+286 \}\par
 }
 }
 {\xe \v ListarPlanoPorRefeicao\:Header.h}
@@ -2543,28 +2553,28 @@ Par\'E2metros\par}
 Retorna\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
 \par
 }}}{
-\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 332                                                                                                                                                 \{\par
-333     {\cf18 int} contaDetalhes = 0;\par
-334     {\cf19 for} ({\cf18 int} i = 0; i < tamPlanos; i++) \{\par
-335         {\cf19 if} (planos[i].numPaciente == numPaciente && planos[i].refeicao == refeicao && dataMin <= planos[i].dataInicio && dataMax >= planos[i].dataFim) \{\par
-336             detalhes[contaDetalhes].numPaciente = planos[i].numPaciente;\par
-337             detalhes[contaDetalhes].dataInicio = planos[i].dataInicio;\par
-338             detalhes[contaDetalhes].dataFim = planos[i].dataFim;\par
-339             detalhes[contaDetalhes].minCal = planos[i].minCal;\par
-340             detalhes[contaDetalhes].maxCal = planos[i].maxCal;\par
-341             detalhes[contaDetalhes].refeicao = planos[i].refeicao;\par
-342             contaDetalhes++;\par
-343         \}\par
-344     \}{\cf19 return} 1;\par
-345 \par
-346 \}\par
+\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 342                                                                                                                                                 \{\par
+343     {\cf18 int} contaDetalhes = 0;\par
+344     {\cf19 for} ({\cf18 int} i = 0; i < tamPlanos; i++) \{\par
+345         {\cf19 if} (planos[i].numPaciente == numPaciente && planos[i].refeicao == refeicao && dataMin <= planos[i].dataInicio && dataMax >= planos[i].dataFim) \{\par
+346             detalhes[contaDetalhes].numPaciente = planos[i].numPaciente;\par
+347             detalhes[contaDetalhes].dataInicio = planos[i].dataInicio;\par
+348             detalhes[contaDetalhes].dataFim = planos[i].dataFim;\par
+349             detalhes[contaDetalhes].minCal = planos[i].minCal;\par
+350             detalhes[contaDetalhes].maxCal = planos[i].maxCal;\par
+351             detalhes[contaDetalhes].refeicao = planos[i].refeicao;\par
+352             contaDetalhes++;\par
+353         \}\par
+354     \}{\cf19 return} 1;\par
+355 \par
+356 \}\par
 }
 }
 {\xe \v NumPacientesPassaLim\:Header.h}
 {\xe \v Header.h\:NumPacientesPassaLim}
 \pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
 {\b 
-int NumPacientesPassaLim ({\b Dieta}  {\i dietas}[], int  {\i tamDietas}, int  {\i calMax}, time_t  {\i dataDieta})}}
+int NumPacientesPassaLim ({\b Dieta}  {\i dietas}[], int  {\i tamDietas}, {\b Paciente}  {\i pacientes}[], int  {\i tamPacientes}, int  {\i calMax}, time_t  {\i dataDieta})}}
 \par
 {\bkmkstart AAAAAAAABL}
 {\bkmkend AAAAAAAABL}
@@ -2607,15 +2617,25 @@ Par\'E2metros\par}
 Retorna\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
 \par
 }}}{
-\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 206                                                                                       \{\par
+\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 206                                                                                                                               \{\par
 207     {\cf18 int} pacientesCalMais = 0;\par
-208     {\cf20 //Corre as dietas}\par
-209     {\cf19 for} ({\cf18 int} i = 0; i < tamDietas; i++)\par
-210     \{\par
-211         {\cf19 if} (dietas[i].cal > calMax && dietas[i].data == dataDieta) pacientesCalMais++;\par
-212     \}\par
-213     {\cf19 return} pacientesCalMais;\par
-214 \}\par
+208     {\cf18 int} calPaciente = 0;\par
+209     {\cf20 //Corre todas as dietas de um paciente}\par
+210     {\cf19 for} ({\cf18 int} i = 0; i < tamPacientes; i++)\par
+211     \{\par
+212         calPaciente = 0;\par
+213 \par
+214         {\cf19 for} ({\cf18 int} j = 0; j < tamDietas; j++)\par
+215         \{\par
+216             {\cf19 if} (dietas[j].numPaciente == pacientes[i].numPaciente && dietas[i].data == dataDieta)\par
+217             \{\par
+218                 calPaciente += dietas[j].cal;\par
+219             \}\par
+220         \}\par
+221         {\cf19 if} (calPaciente > calMax) pacientesCalMais++;\par
+222     \}\par
+223     {\cf19 return} pacientesCalMais;\par
+224 \}\par
 }
 }
 {\xe \v TabelaDietas\:Header.h}
@@ -2631,7 +2651,7 @@ void TabelaDietas ({\b Dieta}  {\i dietas}[], int  {\i tamDietas}, {\b Paciente}
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Desenha a tabela para cada dieta com plano associado registada. }}\par
+Desenha a tabela para cada dieta com plano associado registada (FULLSCREEN) }}\par
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 {\par
 {\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs20\cgrid 
@@ -2674,85 +2694,85 @@ Par\'E2metros\par}
 {\row }
 }
 }{
-\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 403                                                                                                                         \{\par
-404 \par
-405     Paciente pacienteTemp;\par
-406     Plano planoTemp;\par
-407     {\cf18 int} caloriasRefeicao = 0;\par
-408 \par
-409     {\cf18 char} refeicao[N];\par
-410     {\cf18 char} dataInicio[N];\par
-411     {\cf18 char} dataFim[N];\par
-412 \par
-413     {\cf18 bool} saltarDieta = {\cf17 false};\par
-414     {\cf18 bool} temPlano = {\cf17 false};\par
-415 \par
-416     {\cf20 //Escreve o cabe\'E7alho da tabela}\par
-417     printf({\cf22 "+---------------------------------------------------------------------------------------------------------------------------------------------------------------+\\n"});\par
-418     printf({\cf22 "|   NP  |   Paciente    |   Refeicao    |   Data Inicio |   Data Fim    |   Min |   Max |   Consumo |\\n"});\par
-419     printf({\cf22 "|---------------------------------------------------------------------------------------------------------------------------------------------------------------|\\n"});\par
-420 \par
-421 \par
-422     {\cf19 for} ({\cf18 int} i = 0; i < tamDietas; i++)\par
-423     \{\par
-424         caloriasRefeicao += dietas[i].cal;\par
+\pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 413                                                                                                                         \{\par
+414 \par
+415     Paciente pacienteTemp;\par
+416     Plano planoTemp;\par
+417     {\cf18 int} caloriasRefeicao = 0;\par
+418 \par
+419     {\cf18 char} refeicao[N];\par
+420     {\cf18 char} dataInicio[N];\par
+421     {\cf18 char} dataFim[N];\par
+422 \par
+423     {\cf18 bool} saltarDieta = {\cf17 false};\par
+424     {\cf18 bool} temPlano = {\cf17 false};\par
 425 \par
-426         {\cf20 //Se existir outra dieta no mesmo dia e na mesma refeicao, incrementa calorias}\par
-427         {\cf19 for} ({\cf18 int} j = 0; j < tamDietas; j++)\par
-428         \{\par
-429             {\cf19 if} (dietas[i].numPaciente == dietas[j].numPaciente && dietas[i].refeicao == dietas[j].refeicao && dietas[i].data == dietas[j].data)\par
-430             \{\par
-431                 {\cf19 if} (i == j) {\cf19 continue};\par
-432 \par
-433                 {\cf20 //Se j\'E1 escreveu esta linha, salta para a pr\'F3xima}\par
-434                 {\cf19 if} (i > j) \{\par
-435                     saltarDieta = {\cf17 true};\par
-436                     {\cf19 break};\par
-437                 \}\par
-438                 caloriasRefeicao += dietas[j].cal;\par
-439             \}\par
-440         \}\par
-441 \par
-442         {\cf20 //Procura as infos do paciente na dieta atual}\par
-443         {\cf19 for} ({\cf18 int} j = 0; j < tamPacientes; j++)\par
-444         \{\par
-445             {\cf19 if} (dietas[i].numPaciente == pacientes[j].numPaciente) \{\par
-446                 pacienteTemp = pacientes[j];\par
-447                 {\cf19 break};\par
-448             \}\par
-449         \}\par
-450 \par
-451         temPlano = {\cf17 false};\par
-452         {\cf20 //Procura as infos do plano a que corresponde a dieta}\par
-453         {\cf19 for} ({\cf18 int} j = 0; j < tamPlanos; j++)\par
+426     {\cf20 //Escreve o cabe\'E7alho da tabela}\par
+427     printf({\cf22 "+---------------------------------------------------------------------------------------------------------------------------------------------------------------+\\n"});\par
+428     printf({\cf22 "|   NP  |   Paciente    |   Refeicao    |   Data Inicio |   Data Fim    |   Min |   Max |   Consumo |\\n"});\par
+429     printf({\cf22 "|---------------------------------------------------------------------------------------------------------------------------------------------------------------|\\n"});\par
+430 \par
+431 \par
+432     {\cf19 for} ({\cf18 int} i = 0; i < tamDietas; i++)\par
+433     \{\par
+434         caloriasRefeicao += dietas[i].cal;\par
+435 \par
+436         {\cf20 //Se existir outra dieta no mesmo dia e na mesma refeicao, incrementa calorias}\par
+437         {\cf19 for} ({\cf18 int} j = 0; j < tamDietas; j++)\par
+438         \{\par
+439             {\cf19 if} (dietas[i].numPaciente == dietas[j].numPaciente && dietas[i].refeicao == dietas[j].refeicao && dietas[i].data == dietas[j].data)\par
+440             \{\par
+441                 {\cf19 if} (i == j) {\cf19 continue};\par
+442 \par
+443                 {\cf20 //Se j\'E1 escreveu esta linha, salta para a pr\'F3xima}\par
+444                 {\cf19 if} (i > j) \{\par
+445                     saltarDieta = {\cf17 true};\par
+446                     {\cf19 break};\par
+447                 \}\par
+448                 caloriasRefeicao += dietas[j].cal;\par
+449             \}\par
+450         \}\par
+451 \par
+452         {\cf20 //Procura as infos do paciente na dieta atual}\par
+453         {\cf19 for} ({\cf18 int} j = 0; j < tamPacientes; j++)\par
 454         \{\par
-455             {\cf19 if} (dietas[i].numPaciente == planos[j].numPaciente && dietas[i].refeicao == planos[j].refeicao && planos[j].dataInicio <= dietas[i].data && planos[j].dataFim >= dietas[i].data) \{\par
-456                 planoTemp = planos[j];\par
-457                 temPlano = {\cf17 true};\par
-458                 {\cf19 break};\par
-459             \} \par
-460         \}\par
-461 \par
-462         {\cf20 // salta para a proxima linha caso j\'E1 tenha escrito esta dieta ou a dieta n\'E3o tenha plano associado}\par
-463         {\cf19 if} (saltarDieta || !temPlano) \{\par
-464             saltarDieta = {\cf17 false};\par
-465             caloriasRefeicao = 0;\par
-466             {\cf19 continue};\par
-467         \}\par
-468 \par
-469         {\cf20 // converte a refei\'E7\'E3o para string para ser mostrada}\par
-470         ConverteRefeicaoString(dietas[i].refeicao, refeicao);\par
+455             {\cf19 if} (dietas[i].numPaciente == pacientes[j].numPaciente) \{\par
+456                 pacienteTemp = pacientes[j];\par
+457                 {\cf19 break};\par
+458             \}\par
+459         \}\par
+460 \par
+461         temPlano = {\cf17 false};\par
+462         {\cf20 //Procura as infos do plano a que corresponde a dieta}\par
+463         {\cf19 for} ({\cf18 int} j = 0; j < tamPlanos; j++)\par
+464         \{\par
+465             {\cf19 if} (dietas[i].numPaciente == planos[j].numPaciente && dietas[i].refeicao == planos[j].refeicao && planos[j].dataInicio <= dietas[i].data && planos[j].dataFim >= dietas[i].data) \{\par
+466                 planoTemp = planos[j];\par
+467                 temPlano = {\cf17 true};\par
+468                 {\cf19 break};\par
+469             \} \par
+470         \}\par
 471 \par
-472         {\cf20 //organiza as datas para dia/mes/ano}\par
-473         ConverteDataString(planoTemp.dataInicio, dataInicio, N);\par
-474 \par
-475         ConverteDataString(planoTemp.dataFim, dataFim, N);\par
-476 \par
-477         printf({\cf22 "|   %d  |   %s      |   %s      |   %s  |   %s  |   %d  |   %d  |   %d  |\\n"}, dietas[i].numPaciente, pacienteTemp.nome, refeicao, dataInicio, dataFim, planoTemp.minCal, planoTemp.maxCal, caloriasRefeicao);\par
-478         caloriasRefeicao = 0;\par
-479     \}\par
-480     printf({\cf22 "+---------------------------------------------------------------------------------------------------------------------------------------------------------------+\\n"});\par
-481 \}\par
+472         {\cf20 // salta para a proxima linha caso j\'E1 tenha escrito esta dieta ou a dieta n\'E3o tenha plano associado}\par
+473         {\cf19 if} (saltarDieta || !temPlano) \{\par
+474             saltarDieta = {\cf17 false};\par
+475             caloriasRefeicao = 0;\par
+476             {\cf19 continue};\par
+477         \}\par
+478 \par
+479         {\cf20 // converte a refei\'E7\'E3o para string para ser mostrada}\par
+480         ConverteRefeicaoString(dietas[i].refeicao, refeicao);\par
+481 \par
+482         {\cf20 //organiza as datas para dia/mes/ano}\par
+483         ConverteDataString(planoTemp.dataInicio, dataInicio, N);\par
+484 \par
+485         ConverteDataString(planoTemp.dataFim, dataFim, N);\par
+486 \par
+487         printf({\cf22 "|   %d  |   %s      |   %s      |   %s  |   %s  |   %d  |   %d  |   %d  |\\n"}, dietas[i].numPaciente, pacienteTemp.nome, refeicao, dataInicio, dataFim, planoTemp.minCal, planoTemp.maxCal, caloriasRefeicao);\par
+488         caloriasRefeicao = 0;\par
+489     \}\par
+490     printf({\cf22 "+---------------------------------------------------------------------------------------------------------------------------------------------------------------+\\n"});\par
+491 \}\par
 }
 }
 \par \pard\plain 
@@ -2853,7 +2873,7 @@ Ir para a documenta\'E7\'E3o deste ficheiro.\par
 84 {\cf18 int} calcularMediaCalorias(Dieta dietas[], {\cf18 int} numDietas, Paciente pacientes[], {\cf18 int} numPacientes, Refeicao refeicao, MediaCalorias mc[], time_t dataMin, time_t dataMax);\par
 85 \par
 86 {\cf20 // Conta o n\'BA de pacientes que ultrapassaram um limite de calorias}\par
-87 {\cf18 int} NumPacientesPassaLim(Dieta dietas[], {\cf18 int} tamDietas, {\cf18 int} calMax, time_t dataDieta);\par
+87 {\cf18 int} NumPacientesPassaLim(Dieta dietas[], {\cf18 int} tamDietas, Paciente pacientes[], {\cf18 int} tamPacientes, {\cf18 int} calMax, time_t dataDieta);\par
 88 \par
 89 {\cf20 // Verifica se um paciente com o mesmo n\'BA existe num array}\par
 90 {\cf18 bool} ExisteNmrPaciente(Paciente pacientes[], {\cf18 int} tamPacientes, {\cf18 int} numPaciente);\par
@@ -2905,38 +2925,8 @@ int main ()}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 {
 \pard\plain \s41\li360\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 21            \{\par
-22     Paciente pacientes[N];\par
-23     Plano planos[N];\par
-24     Dieta dietas[N];\par
-25     MediaCalorias mediacal[N];\par
-26 \par
-27     ImportarPacientes(pacientes, {\cf22 "Pacientes1.csv"});\par
-28 \par
-29     ImportarPlanos(planos, {\cf22 "Planos1.csv"}, pacientes);\par
-30 \par
-31     DietaPaciente(dietas, {\cf22 "Dietas1.csv"});\par
-32 \par
-33     {\cf18 int} result = NumPacientesPassaLim(dietas, 4, 119, dietas[2].data);\par
-34 \par
-35     result;\par
-36 \par
-37     Paciente pacientesOrd[N];\par
-38 \par
-39     ListaPacientesCalMais(planos, 3, dietas, 4, pacientes, 3, pacientesOrd);\par
-40 \par
-41     pacientesOrd;\par
-42 \par
-43     Plano detalhes[N];\par
-44     ListarPlanoPorRefeicao(planos, detalhes, 3, 1, PequenoAlmoco, ConverteDataTimet({\cf22 "1/1/2023"}), ConverteDataTimet({\cf22 "2/1/2023"}));\par
-45 \par
-46     detalhes;\par
-47 \par
-48     MediaCalorias mc[N];\par
-49     calcularMediaCalorias(dietas, 4, pacientes, 3, PequenoAlmoco, mc, ConverteDataTimet({\cf22 "1/1/2023"}), ConverteDataTimet({\cf22 "2/1/2023"}));\par
-50     mc;\par
-51 \par
-52     TabelaDietas(dietas, 4, pacientes, 3, planos, 3);\par
-53 \}\par
+22 \par
+23 \}\par
 }
 }
 

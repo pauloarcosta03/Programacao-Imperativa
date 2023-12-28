@@ -402,7 +402,7 @@ int calcularMediaCalorias(Dieta dietas[], int numDietas, Paciente pacientes[], i
 //TÓPICO 6
 
 /// <summary>
-/// Desenha a tabela para cada dieta com plano associado registada
+/// Desenha a tabela para cada dieta com plano associado registada (FULLSCREEN)
 /// </summary>
 /// <param name="dietas"></param>
 /// <param name="tamDietas"></param>

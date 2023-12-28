@@ -19,17 +19,5 @@
 #include <stdio.h>
 
 int main() {
-	Paciente pacientes[N];
-	Plano planos[N];
-	Dieta dietas[N];
 
-	ImportarPacientes(pacientes, "Pacientes1.csv");
-
-	ImportarPlanos(planos, "Planos1.csv", pacientes);
-
-	DietaPaciente(dietas, "Dietas1.csv");
-
-	int result = NumPacientesPassaLim(dietas, 4, pacientes, 4, 100, dietas[0].data);
-
-	result;
 }

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Documentação Trabalho Prático: Referência ao ficheiro C:/AulasProgramacaoImperativa/TrabalhosPraticos/TrabalhoPratico1/Source.c</title>
+<title>LESI_PI_TP_26017_29851_27981: Referência ao ficheiro C:/AulasProgramacaoImperativa/TrabalhosPraticos/TrabalhoPratico1/Source.c</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Documentação Trabalho Prático<span id="projectnumber">&#160;1.0</span>
+   <div id="projectname">LESI_PI_TP_26017_29851_27981<span id="projectnumber">&#160;1.0</span>
    </div>
   </td>
  </tr>
@@ -102,53 +102,8 @@ Funções</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <div class="fragment"><div class="line"><span class="lineno">   21</span>           {</div>
-<div class="line"><span class="lineno">   22</span>    <a class="code hl_struct" href="struct_paciente.html">Paciente</a> pacientes[<a class="code hl_define" href="_header_8h.html#a0240ac851181b84ac374872dc5434ee4">N</a>];</div>
-<div class="line"><span class="lineno">   23</span>    <a class="code hl_struct" href="struct_plano.html">Plano</a> planos[<a class="code hl_define" href="_header_8h.html#a0240ac851181b84ac374872dc5434ee4">N</a>];</div>
-<div class="line"><span class="lineno">   24</span>    <a class="code hl_struct" href="struct_dieta.html">Dieta</a> dietas[<a class="code hl_define" href="_header_8h.html#a0240ac851181b84ac374872dc5434ee4">N</a>];</div>
-<div class="line"><span class="lineno">   25</span>    <a class="code hl_struct" href="struct_media_calorias.html">MediaCalorias</a> mediacal[<a class="code hl_define" href="_header_8h.html#a0240ac851181b84ac374872dc5434ee4">N</a>];</div>
-<div class="line"><span class="lineno">   26</span> </div>
-<div class="line"><span class="lineno">   27</span>    <a class="code hl_function" href="_funcoes_8c.html#aba738fe2a49c7adfff1edf249bd71020">ImportarPacientes</a>(pacientes, <span class="stringliteral">&quot;Pacientes1.csv&quot;</span>);</div>
-<div class="line"><span class="lineno">   28</span> </div>
-<div class="line"><span class="lineno">   29</span>    <a class="code hl_function" href="_funcoes_8c.html#a702bc142dca51aace3646d89c7765cae">ImportarPlanos</a>(planos, <span class="stringliteral">&quot;Planos1.csv&quot;</span>, pacientes);</div>
-<div class="line"><span class="lineno">   30</span> </div>
-<div class="line"><span class="lineno">   31</span>    <a class="code hl_function" href="_funcoes_8c.html#aad9b32c425d4fbea72ebb24d1018eb5d">DietaPaciente</a>(dietas, <span class="stringliteral">&quot;Dietas1.csv&quot;</span>);</div>
-<div class="line"><span class="lineno">   32</span> </div>
-<div class="line"><span class="lineno">   33</span>    <span class="keywordtype">int</span> result = <a class="code hl_function" href="_funcoes_8c.html#a43ad9c551e071814148e14ce10e4a9a9">NumPacientesPassaLim</a>(dietas, 4, 119, dietas[2].data);</div>
-<div class="line"><span class="lineno">   34</span> </div>
-<div class="line"><span class="lineno">   35</span>    result;</div>
-<div class="line"><span class="lineno">   36</span> </div>
-<div class="line"><span class="lineno">   37</span>    <a class="code hl_struct" href="struct_paciente.html">Paciente</a> pacientesOrd[<a class="code hl_define" href="_header_8h.html#a0240ac851181b84ac374872dc5434ee4">N</a>];</div>
-<div class="line"><span class="lineno">   38</span> </div>
-<div class="line"><span class="lineno">   39</span>    <a class="code hl_function" href="_funcoes_8c.html#a6bcd0dbf4865d3bd93f1042bf4cb4dde">ListaPacientesCalMais</a>(planos, 3, dietas, 4, pacientes, 3, pacientesOrd);</div>
-<div class="line"><span class="lineno">   40</span> </div>
-<div class="line"><span class="lineno">   41</span>    pacientesOrd;</div>
-<div class="line"><span class="lineno">   42</span> </div>
-<div class="line"><span class="lineno">   43</span>    <a class="code hl_struct" href="struct_plano.html">Plano</a> detalhes[<a class="code hl_define" href="_header_8h.html#a0240ac851181b84ac374872dc5434ee4">N</a>];</div>
-<div class="line"><span class="lineno">   44</span>    <a class="code hl_function" href="_funcoes_8c.html#ac5f9984dd97df52e551c9dc17f7485e7">ListarPlanoPorRefeicao</a>(planos, detalhes, 3, 1, <a class="code hl_enumvalue" href="_header_8h.html#aa8959f8bc30fdd8f313e2f805532c0e7a8a034a4947f7c77314696c504e5f9ca3">PequenoAlmoco</a>, <a class="code hl_function" href="_funcoes_8c.html#a5d2dd908a0fea79724872689c6c5e18d">ConverteDataTimet</a>(<span class="stringliteral">&quot;1/1/2023&quot;</span>), <a class="code hl_function" href="_funcoes_8c.html#a5d2dd908a0fea79724872689c6c5e18d">ConverteDataTimet</a>(<span class="stringliteral">&quot;2/1/2023&quot;</span>));</div>
-<div class="line"><span class="lineno">   45</span> </div>
-<div class="line"><span class="lineno">   46</span>    detalhes;</div>
-<div class="line"><span class="lineno">   47</span> </div>
-<div class="line"><span class="lineno">   48</span>    <a class="code hl_struct" href="struct_media_calorias.html">MediaCalorias</a> mc[<a class="code hl_define" href="_header_8h.html#a0240ac851181b84ac374872dc5434ee4">N</a>];</div>
-<div class="line"><span class="lineno">   49</span>    <a class="code hl_function" href="_funcoes_8c.html#a551810dc1213dbb09c027e59b8481dee">calcularMediaCalorias</a>(dietas, 4, pacientes, 3, <a class="code hl_enumvalue" href="_header_8h.html#aa8959f8bc30fdd8f313e2f805532c0e7a8a034a4947f7c77314696c504e5f9ca3">PequenoAlmoco</a>, mc, <a class="code hl_function" href="_funcoes_8c.html#a5d2dd908a0fea79724872689c6c5e18d">ConverteDataTimet</a>(<span class="stringliteral">&quot;1/1/2023&quot;</span>), <a class="code hl_function" href="_funcoes_8c.html#a5d2dd908a0fea79724872689c6c5e18d">ConverteDataTimet</a>(<span class="stringliteral">&quot;2/1/2023&quot;</span>));</div>
-<div class="line"><span class="lineno">   50</span>    mc;</div>
-<div class="line"><span class="lineno">   51</span> </div>
-<div class="line"><span class="lineno">   52</span>    <a class="code hl_function" href="_funcoes_8c.html#ae27fdf65316ebf0fdd62fc1dfec3f59d">TabelaDietas</a>(dietas, 4, pacientes, 3, planos, 3);</div>
-<div class="line"><span class="lineno">   53</span>}</div>
-<div class="ttc" id="a_funcoes_8c_html_a43ad9c551e071814148e14ce10e4a9a9"><div class="ttname"><a href="_funcoes_8c.html#a43ad9c551e071814148e14ce10e4a9a9">NumPacientesPassaLim</a></div><div class="ttdeci">int NumPacientesPassaLim(Dieta dietas[], int tamDietas, int calMax, time_t dataDieta)</div><div class="ttdoc">Conta o n� de pacientes que ultrapassaram um limite de calorias num determinado dia.</div><div class="ttdef"><b>Definição</b> Funcoes.c:206</div></div>
-<div class="ttc" id="a_funcoes_8c_html_a551810dc1213dbb09c027e59b8481dee"><div class="ttname"><a href="_funcoes_8c.html#a551810dc1213dbb09c027e59b8481dee">calcularMediaCalorias</a></div><div class="ttdeci">int calcularMediaCalorias(Dieta dietas[], int numDietas, Paciente pacientes[], int numPacientes, Refeicao refeicao, MediaCalorias mc[], time_t dataMin, time_t dataMax)</div><div class="ttdoc">Calcula media das calorias de uma refei��o.</div><div class="ttdef"><b>Definição</b> Funcoes.c:362</div></div>
-<div class="ttc" id="a_funcoes_8c_html_a5d2dd908a0fea79724872689c6c5e18d"><div class="ttname"><a href="_funcoes_8c.html#a5d2dd908a0fea79724872689c6c5e18d">ConverteDataTimet</a></div><div class="ttdeci">time_t ConverteDataTimet(char dataString[])</div><div class="ttdoc">Converte string para time_t.</div><div class="ttdef"><b>Definição</b> Funcoes.c:161</div></div>
-<div class="ttc" id="a_funcoes_8c_html_a6bcd0dbf4865d3bd93f1042bf4cb4dde"><div class="ttname"><a href="_funcoes_8c.html#a6bcd0dbf4865d3bd93f1042bf4cb4dde">ListaPacientesCalMais</a></div><div class="ttdeci">int ListaPacientesCalMais(Plano planos[], int tamPlanos, Dieta dietas[], int tamDietas, Paciente pacientes[], int tamPacientes, Paciente arrayOrdPacientes[])</div><div class="ttdoc">Conta o n� de pacientes que ultrapassaram o limite de calorias do plano.</div><div class="ttdef"><b>Definição</b> Funcoes.c:226</div></div>
-<div class="ttc" id="a_funcoes_8c_html_a702bc142dca51aace3646d89c7765cae"><div class="ttname"><a href="_funcoes_8c.html#a702bc142dca51aace3646d89c7765cae">ImportarPlanos</a></div><div class="ttdeci">int ImportarPlanos(Plano planos[], char filename[], Paciente pacientes[])</div><div class="ttdoc">Importa planos nutricionais de um ficheiro CSV.</div><div class="ttdef"><b>Definição</b> Funcoes.c:92</div></div>
-<div class="ttc" id="a_funcoes_8c_html_aad9b32c425d4fbea72ebb24d1018eb5d"><div class="ttname"><a href="_funcoes_8c.html#aad9b32c425d4fbea72ebb24d1018eb5d">DietaPaciente</a></div><div class="ttdeci">int DietaPaciente(Dieta dietas[], char filename[])</div><div class="ttdoc">Importa dieta dos pacientes de um ficheiro CSV.</div><div class="ttdef"><b>Definição</b> Funcoes.c:54</div></div>
-<div class="ttc" id="a_funcoes_8c_html_aba738fe2a49c7adfff1edf249bd71020"><div class="ttname"><a href="_funcoes_8c.html#aba738fe2a49c7adfff1edf249bd71020">ImportarPacientes</a></div><div class="ttdeci">int ImportarPacientes(Paciente pacientes[], char filename[])</div><div class="ttdoc">Importa pacientes de um ficheiro CSV.</div><div class="ttdef"><b>Definição</b> Funcoes.c:32</div></div>
-<div class="ttc" id="a_funcoes_8c_html_ac5f9984dd97df52e551c9dc17f7485e7"><div class="ttname"><a href="_funcoes_8c.html#ac5f9984dd97df52e551c9dc17f7485e7">ListarPlanoPorRefeicao</a></div><div class="ttdeci">int ListarPlanoPorRefeicao(Plano planos[], Plano detalhes[], int tamPlanos, int numPaciente, Refeicao refeicao, time_t dataMin, time_t dataMax)</div><div class="ttdoc">Lista plano por refeicao.</div><div class="ttdef"><b>Definição</b> Funcoes.c:332</div></div>
-<div class="ttc" id="a_funcoes_8c_html_ae27fdf65316ebf0fdd62fc1dfec3f59d"><div class="ttname"><a href="_funcoes_8c.html#ae27fdf65316ebf0fdd62fc1dfec3f59d">TabelaDietas</a></div><div class="ttdeci">void TabelaDietas(Dieta dietas[], int tamDietas, Paciente pacientes[], int tamPacientes, Plano planos[], int tamPlanos)</div><div class="ttdoc">Desenha a tabela para cada dieta com plano associado registada.</div><div class="ttdef"><b>Definição</b> Funcoes.c:403</div></div>
-<div class="ttc" id="a_header_8h_html_a0240ac851181b84ac374872dc5434ee4"><div class="ttname"><a href="_header_8h.html#a0240ac851181b84ac374872dc5434ee4">N</a></div><div class="ttdeci">#define N</div><div class="ttdef"><b>Definição</b> Header.h:22</div></div>
-<div class="ttc" id="a_header_8h_html_aa8959f8bc30fdd8f313e2f805532c0e7a8a034a4947f7c77314696c504e5f9ca3"><div class="ttname"><a href="_header_8h.html#aa8959f8bc30fdd8f313e2f805532c0e7a8a034a4947f7c77314696c504e5f9ca3">PequenoAlmoco</a></div><div class="ttdeci">@ PequenoAlmoco</div><div class="ttdef"><b>Definição</b> Header.h:26</div></div>
-<div class="ttc" id="astruct_dieta_html"><div class="ttname"><a href="struct_dieta.html">Dieta</a></div><div class="ttdef"><b>Definição</b> Header.h:41</div></div>
-<div class="ttc" id="astruct_media_calorias_html"><div class="ttname"><a href="struct_media_calorias.html">MediaCalorias</a></div><div class="ttdef"><b>Definição</b> Header.h:58</div></div>
-<div class="ttc" id="astruct_paciente_html"><div class="ttname"><a href="struct_paciente.html">Paciente</a></div><div class="ttdef"><b>Definição</b> Header.h:50</div></div>
-<div class="ttc" id="astruct_plano_html"><div class="ttname"><a href="struct_plano.html">Plano</a></div><div class="ttdef"><b>Definição</b> Header.h:32</div></div>
+<div class="line"><span class="lineno">   22</span> </div>
+<div class="line"><span class="lineno">   23</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>

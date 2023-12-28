@@ -58,14 +58,14 @@ int \mbox{\hyperlink{_header_8h_ac5f9984dd97df52e551c9dc17f7485e7}{Listar\+Plano
 \begin{DoxyCompactList}\small\item\em Lista plano por refeicao. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{_header_8h_a551810dc1213dbb09c027e59b8481dee}{calcular\+Media\+Calorias}} (\mbox{\hyperlink{struct_dieta}{Dieta}} dietas\mbox{[}$\,$\mbox{]}, int num\+Dietas, \mbox{\hyperlink{struct_paciente}{Paciente}} pacientes\mbox{[}$\,$\mbox{]}, int num\+Pacientes, \mbox{\hyperlink{_header_8h_aa8959f8bc30fdd8f313e2f805532c0e7}{Refeicao}} refeicao, \mbox{\hyperlink{struct_media_calorias}{Media\+Calorias}} mc\mbox{[}$\,$\mbox{]}, time\+\_\+t data\+Min, time\+\_\+t data\+Max)
 \begin{DoxyCompactList}\small\item\em Calcula media das calorias de uma refeição. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{_header_8h_a43ad9c551e071814148e14ce10e4a9a9}{Num\+Pacientes\+Passa\+Lim}} (\mbox{\hyperlink{struct_dieta}{Dieta}} dietas\mbox{[}$\,$\mbox{]}, int tam\+Dietas, int cal\+Max, time\+\_\+t data\+Dieta)
+int \mbox{\hyperlink{_header_8h_ab9cb3381ae719b54cc54a1c1f39770ba}{Num\+Pacientes\+Passa\+Lim}} (\mbox{\hyperlink{struct_dieta}{Dieta}} dietas\mbox{[}$\,$\mbox{]}, int tam\+Dietas, \mbox{\hyperlink{struct_paciente}{Paciente}} pacientes\mbox{[}$\,$\mbox{]}, int tam\+Pacientes, int cal\+Max, time\+\_\+t data\+Dieta)
 \begin{DoxyCompactList}\small\item\em Conta o nº de pacientes que ultrapassaram um limite de calorias num determinado dia. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{_header_8h_acb34f993ee68486d4dc974be53498660}{Existe\+Nmr\+Paciente}} (\mbox{\hyperlink{struct_paciente}{Paciente}} pacientes\mbox{[}$\,$\mbox{]}, int tam\+Pacientes, int num\+Paciente)
 \begin{DoxyCompactList}\small\item\em Verifica se já existe um paciente com o mesmo nº \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{_header_8h_a6bcd0dbf4865d3bd93f1042bf4cb4dde}{Lista\+Pacientes\+Cal\+Mais}} (\mbox{\hyperlink{struct_plano}{Plano}} planos\mbox{[}$\,$\mbox{]}, int tam\+Planos, \mbox{\hyperlink{struct_dieta}{Dieta}} dietas\mbox{[}$\,$\mbox{]}, int tam\+Dietas, \mbox{\hyperlink{struct_paciente}{Paciente}} pacientes\mbox{[}$\,$\mbox{]}, int tam\+Pacientes, \mbox{\hyperlink{struct_paciente}{Paciente}} array\+Ord\+Pacientes\mbox{[}$\,$\mbox{]})
 \begin{DoxyCompactList}\small\item\em Conta o nº de pacientes que ultrapassaram o limite de calorias do plano. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{_header_8h_ae27fdf65316ebf0fdd62fc1dfec3f59d}{Tabela\+Dietas}} (\mbox{\hyperlink{struct_dieta}{Dieta}} dietas\mbox{[}$\,$\mbox{]}, int tam\+Dietas, \mbox{\hyperlink{struct_paciente}{Paciente}} pacientes\mbox{[}$\,$\mbox{]}, int tam\+Pacientes, \mbox{\hyperlink{struct_plano}{Plano}} planos\mbox{[}$\,$\mbox{]}, int tam\+Planos)
-\begin{DoxyCompactList}\small\item\em Desenha a tabela para cada dieta com plano associado registada. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Desenha a tabela para cada dieta com plano associado registada (FULLSCREEN) \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{_header_8h_aa6dee3c396516c38394c48b3c2eda52a}{Converte\+Refeicao\+String}} (int refeicao, char refeicao\+String\mbox{[}$\,$\mbox{]})
 \begin{DoxyCompactList}\small\item\em Converte enum refeição para string. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -185,35 +185,35 @@ Calcula media das calorias de uma refeição.
 \end{DoxyReturn}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00363\ \ \ \ \ \textcolor{keywordtype}{double}\ somaCalorias\ =\ 0;}
-\DoxyCodeLine{00364\ \ \ \ \ \textcolor{keywordtype}{int}\ numRefeicoes\ =\ 0;}
-\DoxyCodeLine{00365\ }
-\DoxyCodeLine{00366\ \ \ \ \ \textcolor{keywordtype}{int}\ posMedia\ =\ 0;}
-\DoxyCodeLine{00367\ }
-\DoxyCodeLine{00368\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ numPacientes;\ j++)}
-\DoxyCodeLine{00369\ \ \ \ \ \{}
-\DoxyCodeLine{00370\ }
-\DoxyCodeLine{00371\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Calcule\ a\ soma\ das\ calorias\ para\ a\ refeição\ e\ paciente\ específicos}}
-\DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ numDietas;\ i++)\ \{}
-\DoxyCodeLine{00373\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dietas[i].numPaciente\ ==\ pacientes[j].numPaciente\ \&\&\ dietas[i].refeicao\ ==\ refeicao\ \&\&\ dietas[i].data\ >=\ dataMin\ \&\&\ dietas[i].data\ <=\ dataMax)\ \{}
-\DoxyCodeLine{00374\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ somaCalorias\ +=\ dietas[i].\mbox{\hyperlink{struct_dieta_afb3817c3f83cf5275206594f812d391a}{cal}};}
-\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ numRefeicoes++;}
-\DoxyCodeLine{00376\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00377\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00378\ }
-\DoxyCodeLine{00379\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Calcule\ a\ média\ de\ calorias\ se\ houver\ pelo\ menos\ uma\ refeição}}
-\DoxyCodeLine{00380\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (numRefeicoes\ >\ 0)\ \{}
-\DoxyCodeLine{00381\ \ \ \ \ \ \ \ \ \ \ \ \ mc[posMedia].\mbox{\hyperlink{struct_media_calorias_ae81c280189d6f26c66892e0bd64225d0}{numPaciente}}\ =\ pacientes[j].\mbox{\hyperlink{struct_paciente_ae81c280189d6f26c66892e0bd64225d0}{numPaciente}};}
-\DoxyCodeLine{00382\ \ \ \ \ \ \ \ \ \ \ \ \ mc[posMedia].\mbox{\hyperlink{struct_media_calorias_a087b254edbe0a64094669bcefc665412}{mediaCal}}\ =\ somaCalorias/numRefeicoes;}
-\DoxyCodeLine{00383\ \ \ \ \ \ \ \ \ \ \ \ \ mc[posMedia].\mbox{\hyperlink{struct_media_calorias_ae56064e3281364fb6af417a643f4aa75}{refeicao}}\ =\ refeicao;}
-\DoxyCodeLine{00384\ }
-\DoxyCodeLine{00385\ \ \ \ \ \ \ \ \ \ \ \ \ numRefeicoes\ =\ 0;}
-\DoxyCodeLine{00386\ \ \ \ \ \ \ \ \ \ \ \ \ posMedia++;}
+\DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00373\ \ \ \ \ \textcolor{keywordtype}{double}\ somaCalorias\ =\ 0;}
+\DoxyCodeLine{00374\ \ \ \ \ \textcolor{keywordtype}{int}\ numRefeicoes\ =\ 0;}
+\DoxyCodeLine{00375\ }
+\DoxyCodeLine{00376\ \ \ \ \ \textcolor{keywordtype}{int}\ posMedia\ =\ 0;}
+\DoxyCodeLine{00377\ }
+\DoxyCodeLine{00378\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ numPacientes;\ j++)}
+\DoxyCodeLine{00379\ \ \ \ \ \{}
+\DoxyCodeLine{00380\ }
+\DoxyCodeLine{00381\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Calcule\ a\ soma\ das\ calorias\ para\ a\ refeição\ e\ paciente\ específicos}}
+\DoxyCodeLine{00382\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ numDietas;\ i++)\ \{}
+\DoxyCodeLine{00383\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dietas[i].numPaciente\ ==\ pacientes[j].numPaciente\ \&\&\ dietas[i].refeicao\ ==\ refeicao\ \&\&\ dietas[i].data\ >=\ dataMin\ \&\&\ dietas[i].data\ <=\ dataMax)\ \{}
+\DoxyCodeLine{00384\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ somaCalorias\ +=\ dietas[i].\mbox{\hyperlink{struct_dieta_afb3817c3f83cf5275206594f812d391a}{cal}};}
+\DoxyCodeLine{00385\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ numRefeicoes++;}
+\DoxyCodeLine{00386\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{00387\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00388\ \ \ \ \ \}}
-\DoxyCodeLine{00389\ }
-\DoxyCodeLine{00390\ \}}
+\DoxyCodeLine{00388\ }
+\DoxyCodeLine{00389\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Calcule\ a\ média\ de\ calorias\ se\ houver\ pelo\ menos\ uma\ refeição}}
+\DoxyCodeLine{00390\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (numRefeicoes\ >\ 0)\ \{}
+\DoxyCodeLine{00391\ \ \ \ \ \ \ \ \ \ \ \ \ mc[posMedia].\mbox{\hyperlink{struct_media_calorias_ae81c280189d6f26c66892e0bd64225d0}{numPaciente}}\ =\ pacientes[j].\mbox{\hyperlink{struct_paciente_ae81c280189d6f26c66892e0bd64225d0}{numPaciente}};}
+\DoxyCodeLine{00392\ \ \ \ \ \ \ \ \ \ \ \ \ mc[posMedia].\mbox{\hyperlink{struct_media_calorias_a087b254edbe0a64094669bcefc665412}{mediaCal}}\ =\ somaCalorias/numRefeicoes;}
+\DoxyCodeLine{00393\ \ \ \ \ \ \ \ \ \ \ \ \ mc[posMedia].\mbox{\hyperlink{struct_media_calorias_ae56064e3281364fb6af417a643f4aa75}{refeicao}}\ =\ refeicao;}
+\DoxyCodeLine{00394\ }
+\DoxyCodeLine{00395\ \ \ \ \ \ \ \ \ \ \ \ \ numRefeicoes\ =\ 0;}
+\DoxyCodeLine{00396\ \ \ \ \ \ \ \ \ \ \ \ \ posMedia++;}
+\DoxyCodeLine{00397\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00398\ \ \ \ \ \}}
+\DoxyCodeLine{00399\ }
+\DoxyCodeLine{00400\ \}}
 
 \end{DoxyCode}
 \Hypertarget{_header_8h_a452388cb782866380840b3f37850ddbd}\label{_header_8h_a452388cb782866380840b3f37850ddbd} 
@@ -406,15 +406,15 @@ Verifica se já existe um paciente com o mesmo nº
 \end{DoxyReturn}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00286\ }
-\DoxyCodeLine{00287\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ tamPacientes;\ i++)}
-\DoxyCodeLine{00288\ \ \ \ \ \{}
-\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pacientes[i].numPaciente\ ==\ numPaciente)\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00290\ \ \ \ \ \}}
-\DoxyCodeLine{00291\ }
-\DoxyCodeLine{00292\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00293\ \}}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00296\ }
+\DoxyCodeLine{00297\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ tamPacientes;\ i++)}
+\DoxyCodeLine{00298\ \ \ \ \ \{}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pacientes[i].numPaciente\ ==\ numPaciente)\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00300\ \ \ \ \ \}}
+\DoxyCodeLine{00301\ }
+\DoxyCodeLine{00302\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00303\ \}}
 
 \end{DoxyCode}
 \Hypertarget{_header_8h_aba738fe2a49c7adfff1edf249bd71020}\label{_header_8h_aba738fe2a49c7adfff1edf249bd71020} 
@@ -549,57 +549,57 @@ Conta o nº de pacientes que ultrapassaram o limite de calorias do plano.
 \end{DoxyReturn}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00227\ \ \ \ \ \textcolor{keywordtype}{int}\ pacientesCalMais\ =\ 0;}
-\DoxyCodeLine{00228\ }
-\DoxyCodeLine{00229\ \ \ \ \ \textcolor{keywordtype}{int}\ posArray\ =\ 0;}
-\DoxyCodeLine{00230\ }
-\DoxyCodeLine{00231\ \ \ \ \ \textcolor{keywordtype}{int}\ calPaciente\ =\ 0;}
-\DoxyCodeLine{00232\ \ \ \ \ }
-\DoxyCodeLine{00233\ \ \ \ \ \textcolor{comment}{//Corre\ os\ planos}}
-\DoxyCodeLine{00234\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ tamPlanos;\ i++)}
-\DoxyCodeLine{00235\ \ \ \ \ \{}
-\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ calPaciente\ =\ 0;}
-\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Corre\ as\ dietas\ (para\ somar\ todas\ as\ calorias)}}
-\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ tamDietas;\ j++)}
-\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (planos[i].numPaciente\ ==\ dietas[j].numPaciente\ \&\&\ planos[i].refeicao\ ==\ dietas[j].refeicao\ \&\&\ planos[i].dataInicio\ <=\ dietas[j].data\ \&\&\ planos[i].dataFim\ >=\ dietas[j].data)}
-\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ calPaciente\ =\ calPaciente\ +\ dietas[j].\mbox{\hyperlink{struct_dieta_afb3817c3f83cf5275206594f812d391a}{cal}};}
-\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00246\ }
-\DoxyCodeLine{00247\ }
-\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \textcolor{comment}{//corre\ os\ pacientes\ ignorando\ os\ duplicados(para\ guardar\ o\ paciente\ certo\ no\ array)}}
-\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((calPaciente\ >\ planos[i].maxCal\ ||\ calPaciente\ <\ planos[i].minCal)\ \&\&\ calPaciente\ !=\ 0\ \&\&\ \mbox{\hyperlink{_funcoes_8c_acb34f993ee68486d4dc974be53498660}{ExisteNmrPaciente}}(pacientes,\ tamPacientes,\ planos[i].numPaciente))\ \{}
-\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ p\ =\ 0;\ p\ <\ tamPacientes;\ p++)}
-\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (planos[i].numPaciente\ ==\ pacientes[p].numPaciente\ \&\&\ !\mbox{\hyperlink{_funcoes_8c_acb34f993ee68486d4dc974be53498660}{ExisteNmrPaciente}}(arrayOrdPacientes,\ posArray+1,\ planos[i].numPaciente))\ \{}
-\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ arrayOrdPacientes[posArray]\ =\ pacientes[p];}
-\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ posArray++;}
-\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00259\ \ \ \ \ \}}
-\DoxyCodeLine{00260\ }
-\DoxyCodeLine{00261\ \ \ \ \ \textcolor{comment}{//ordena\ por\ ordem\ decrescente}}
-\DoxyCodeLine{00262\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ posArray\ +\ 1;\ i++)}
-\DoxyCodeLine{00263\ \ \ \ \ \{}
-\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ tamPacientes;\ j++)\ \{}
-\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (arrayOrdPacientes[i].numPaciente\ >\ arrayOrdPacientes[j].numPaciente)}
-\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_paciente}{Paciente}}\ aux\ =\ arrayOrdPacientes[i];}
-\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ arrayOrdPacientes[i]\ =\ arrayOrdPacientes[j];}
-\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ arrayOrdPacientes[j]\ =\ aux;}
-\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00272\ \ \ \ \ \}}
-\DoxyCodeLine{00273\ }
-\DoxyCodeLine{00274\ \ \ \ \ \textcolor{comment}{//pacientes;}}
-\DoxyCodeLine{00275\ \ \ \ \ \textcolor{keywordflow}{return}\ pacientesCalMais;}
-\DoxyCodeLine{00276\ \}}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00237\ \ \ \ \ \textcolor{keywordtype}{int}\ pacientesCalMais\ =\ 0;}
+\DoxyCodeLine{00238\ }
+\DoxyCodeLine{00239\ \ \ \ \ \textcolor{keywordtype}{int}\ posArray\ =\ 0;}
+\DoxyCodeLine{00240\ }
+\DoxyCodeLine{00241\ \ \ \ \ \textcolor{keywordtype}{int}\ calPaciente\ =\ 0;}
+\DoxyCodeLine{00242\ \ \ \ \ }
+\DoxyCodeLine{00243\ \ \ \ \ \textcolor{comment}{//Corre\ os\ planos}}
+\DoxyCodeLine{00244\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ tamPlanos;\ i++)}
+\DoxyCodeLine{00245\ \ \ \ \ \{}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ calPaciente\ =\ 0;}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Corre\ as\ dietas\ (para\ somar\ todas\ as\ calorias)}}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ tamDietas;\ j++)}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (planos[i].numPaciente\ ==\ dietas[j].numPaciente\ \&\&\ planos[i].refeicao\ ==\ dietas[j].refeicao\ \&\&\ planos[i].dataInicio\ <=\ dietas[j].data\ \&\&\ planos[i].dataFim\ >=\ dietas[j].data)}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ calPaciente\ =\ calPaciente\ +\ dietas[j].\mbox{\hyperlink{struct_dieta_afb3817c3f83cf5275206594f812d391a}{cal}};}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00256\ }
+\DoxyCodeLine{00257\ }
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \textcolor{comment}{//corre\ os\ pacientes\ ignorando\ os\ duplicados(para\ guardar\ o\ paciente\ certo\ no\ array)}}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((calPaciente\ >\ planos[i].maxCal\ ||\ calPaciente\ <\ planos[i].minCal)\ \&\&\ calPaciente\ !=\ 0\ \&\&\ \mbox{\hyperlink{_funcoes_8c_acb34f993ee68486d4dc974be53498660}{ExisteNmrPaciente}}(pacientes,\ tamPacientes,\ planos[i].numPaciente))\ \{}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ p\ =\ 0;\ p\ <\ tamPacientes;\ p++)}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (planos[i].numPaciente\ ==\ pacientes[p].numPaciente\ \&\&\ !\mbox{\hyperlink{_funcoes_8c_acb34f993ee68486d4dc974be53498660}{ExisteNmrPaciente}}(arrayOrdPacientes,\ posArray+1,\ planos[i].numPaciente))\ \{}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ arrayOrdPacientes[posArray]\ =\ pacientes[p];}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ posArray++;}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00269\ \ \ \ \ \}}
+\DoxyCodeLine{00270\ }
+\DoxyCodeLine{00271\ \ \ \ \ \textcolor{comment}{//ordena\ por\ ordem\ decrescente}}
+\DoxyCodeLine{00272\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ posArray\ +\ 1;\ i++)}
+\DoxyCodeLine{00273\ \ \ \ \ \{}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ tamPacientes;\ j++)\ \{}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (arrayOrdPacientes[i].numPaciente\ >\ arrayOrdPacientes[j].numPaciente)}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_paciente}{Paciente}}\ aux\ =\ arrayOrdPacientes[i];}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ arrayOrdPacientes[i]\ =\ arrayOrdPacientes[j];}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ arrayOrdPacientes[j]\ =\ aux;}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00282\ \ \ \ \ \}}
+\DoxyCodeLine{00283\ }
+\DoxyCodeLine{00284\ \ \ \ \ \textcolor{comment}{//pacientes;}}
+\DoxyCodeLine{00285\ \ \ \ \ \textcolor{keywordflow}{return}\ pacientesCalMais;}
+\DoxyCodeLine{00286\ \}}
 
 \end{DoxyCode}
 \Hypertarget{_header_8h_ac5f9984dd97df52e551c9dc17f7485e7}\label{_header_8h_ac5f9984dd97df52e551c9dc17f7485e7} 
@@ -634,28 +634,28 @@ Lista plano por refeicao.
 \end{DoxyReturn}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00333\ \ \ \ \ \textcolor{keywordtype}{int}\ contaDetalhes\ =\ 0;}
-\DoxyCodeLine{00334\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ tamPlanos;\ i++)\ \{}
-\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (planos[i].numPaciente\ ==\ numPaciente\ \&\&\ planos[i].refeicao\ ==\ refeicao\ \&\&\ dataMin\ <=\ planos[i].dataInicio\ \&\&\ dataMax\ >=\ planos[i].dataFim)\ \{}
-\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \ \ \ \ detalhes[contaDetalhes].\mbox{\hyperlink{struct_plano_ae81c280189d6f26c66892e0bd64225d0}{numPaciente}}\ =\ planos[i].\mbox{\hyperlink{struct_plano_ae81c280189d6f26c66892e0bd64225d0}{numPaciente}};}
-\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ \ \ \ \ detalhes[contaDetalhes].\mbox{\hyperlink{struct_plano_ae66bb545b057d80da4ddbe70a5c71daa}{dataInicio}}\ =\ planos[i].\mbox{\hyperlink{struct_plano_ae66bb545b057d80da4ddbe70a5c71daa}{dataInicio}};}
-\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ \ \ \ \ detalhes[contaDetalhes].\mbox{\hyperlink{struct_plano_ad582dfb46c63027678e3c5c651a6339e}{dataFim}}\ =\ planos[i].\mbox{\hyperlink{struct_plano_ad582dfb46c63027678e3c5c651a6339e}{dataFim}};}
-\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ \ \ \ \ detalhes[contaDetalhes].\mbox{\hyperlink{struct_plano_a0cd6d7c97743687dfe85445675a63897}{minCal}}\ =\ planos[i].\mbox{\hyperlink{struct_plano_a0cd6d7c97743687dfe85445675a63897}{minCal}};}
-\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ \ \ \ \ detalhes[contaDetalhes].\mbox{\hyperlink{struct_plano_a37aa03df6e08a728789d5c0540cc4e7f}{maxCal}}\ =\ planos[i].\mbox{\hyperlink{struct_plano_a37aa03df6e08a728789d5c0540cc4e7f}{maxCal}};}
-\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ \ \ \ \ detalhes[contaDetalhes].\mbox{\hyperlink{struct_plano_ae56064e3281364fb6af417a643f4aa75}{refeicao}}\ =\ planos[i].\mbox{\hyperlink{struct_plano_ae56064e3281364fb6af417a643f4aa75}{refeicao}};}
-\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \ \ \ \ contaDetalhes++;}
-\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00344\ \ \ \ \ \}\textcolor{keywordflow}{return}\ 1;}
-\DoxyCodeLine{00345\ }
-\DoxyCodeLine{00346\ \}}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00343\ \ \ \ \ \textcolor{keywordtype}{int}\ contaDetalhes\ =\ 0;}
+\DoxyCodeLine{00344\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ tamPlanos;\ i++)\ \{}
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (planos[i].numPaciente\ ==\ numPaciente\ \&\&\ planos[i].refeicao\ ==\ refeicao\ \&\&\ dataMin\ <=\ planos[i].dataInicio\ \&\&\ dataMax\ >=\ planos[i].dataFim)\ \{}
+\DoxyCodeLine{00346\ \ \ \ \ \ \ \ \ \ \ \ \ detalhes[contaDetalhes].\mbox{\hyperlink{struct_plano_ae81c280189d6f26c66892e0bd64225d0}{numPaciente}}\ =\ planos[i].\mbox{\hyperlink{struct_plano_ae81c280189d6f26c66892e0bd64225d0}{numPaciente}};}
+\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ \ \ \ \ detalhes[contaDetalhes].\mbox{\hyperlink{struct_plano_ae66bb545b057d80da4ddbe70a5c71daa}{dataInicio}}\ =\ planos[i].\mbox{\hyperlink{struct_plano_ae66bb545b057d80da4ddbe70a5c71daa}{dataInicio}};}
+\DoxyCodeLine{00348\ \ \ \ \ \ \ \ \ \ \ \ \ detalhes[contaDetalhes].\mbox{\hyperlink{struct_plano_ad582dfb46c63027678e3c5c651a6339e}{dataFim}}\ =\ planos[i].\mbox{\hyperlink{struct_plano_ad582dfb46c63027678e3c5c651a6339e}{dataFim}};}
+\DoxyCodeLine{00349\ \ \ \ \ \ \ \ \ \ \ \ \ detalhes[contaDetalhes].\mbox{\hyperlink{struct_plano_a0cd6d7c97743687dfe85445675a63897}{minCal}}\ =\ planos[i].\mbox{\hyperlink{struct_plano_a0cd6d7c97743687dfe85445675a63897}{minCal}};}
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ \ \ \ \ detalhes[contaDetalhes].\mbox{\hyperlink{struct_plano_a37aa03df6e08a728789d5c0540cc4e7f}{maxCal}}\ =\ planos[i].\mbox{\hyperlink{struct_plano_a37aa03df6e08a728789d5c0540cc4e7f}{maxCal}};}
+\DoxyCodeLine{00351\ \ \ \ \ \ \ \ \ \ \ \ \ detalhes[contaDetalhes].\mbox{\hyperlink{struct_plano_ae56064e3281364fb6af417a643f4aa75}{refeicao}}\ =\ planos[i].\mbox{\hyperlink{struct_plano_ae56064e3281364fb6af417a643f4aa75}{refeicao}};}
+\DoxyCodeLine{00352\ \ \ \ \ \ \ \ \ \ \ \ \ contaDetalhes++;}
+\DoxyCodeLine{00353\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00354\ \ \ \ \ \}\textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00355\ }
+\DoxyCodeLine{00356\ \}}
 
 \end{DoxyCode}
-\Hypertarget{_header_8h_a43ad9c551e071814148e14ce10e4a9a9}\label{_header_8h_a43ad9c551e071814148e14ce10e4a9a9} 
+\Hypertarget{_header_8h_ab9cb3381ae719b54cc54a1c1f39770ba}\label{_header_8h_ab9cb3381ae719b54cc54a1c1f39770ba} 
 \index{Header.h@{Header.h}!NumPacientesPassaLim@{NumPacientesPassaLim}}
 \index{NumPacientesPassaLim@{NumPacientesPassaLim}!Header.h@{Header.h}}
 \doxysubsubsection{\texorpdfstring{NumPacientesPassaLim()}{NumPacientesPassaLim()}}
-{\footnotesize\ttfamily int Num\+Pacientes\+Passa\+Lim (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_dieta}{Dieta}}}]{dietas\mbox{[}$\,$\mbox{]},  }\item[{int}]{tam\+Dietas,  }\item[{int}]{cal\+Max,  }\item[{time\+\_\+t}]{data\+Dieta }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int Num\+Pacientes\+Passa\+Lim (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_dieta}{Dieta}}}]{dietas\mbox{[}$\,$\mbox{]},  }\item[{int}]{tam\+Dietas,  }\item[{\mbox{\hyperlink{struct_paciente}{Paciente}}}]{pacientes\mbox{[}$\,$\mbox{]},  }\item[{int}]{tam\+Pacientes,  }\item[{int}]{cal\+Max,  }\item[{time\+\_\+t}]{data\+Dieta }\end{DoxyParamCaption})}
 
 
 
@@ -677,15 +677,25 @@ Conta o nº de pacientes que ultrapassaram um limite de calorias num determinado 
 \end{DoxyReturn}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
 \DoxyCodeLine{00207\ \ \ \ \ \textcolor{keywordtype}{int}\ pacientesCalMais\ =\ 0;}
-\DoxyCodeLine{00208\ \ \ \ \ \textcolor{comment}{//Corre\ as\ dietas}}
-\DoxyCodeLine{00209\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ tamDietas;\ i++)}
-\DoxyCodeLine{00210\ \ \ \ \ \{}
-\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dietas[i].cal\ >\ calMax\ \&\&\ dietas[i].data\ ==\ dataDieta)\ pacientesCalMais++;}
-\DoxyCodeLine{00212\ \ \ \ \ \}}
-\DoxyCodeLine{00213\ \ \ \ \ \textcolor{keywordflow}{return}\ pacientesCalMais;}
-\DoxyCodeLine{00214\ \}}
+\DoxyCodeLine{00208\ \ \ \ \ \textcolor{keywordtype}{int}\ calPaciente\ =\ 0;}
+\DoxyCodeLine{00209\ \ \ \ \ \textcolor{comment}{//Corre\ todas\ as\ dietas\ de\ um\ paciente}}
+\DoxyCodeLine{00210\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ tamPacientes;\ i++)}
+\DoxyCodeLine{00211\ \ \ \ \ \{}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ calPaciente\ =\ 0;}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ tamDietas;\ j++)}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dietas[j].numPaciente\ ==\ pacientes[i].numPaciente\ \&\&\ dietas[i].data\ ==\ dataDieta)}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ calPaciente\ +=\ dietas[j].\mbox{\hyperlink{struct_dieta_afb3817c3f83cf5275206594f812d391a}{cal}};}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (calPaciente\ >\ calMax)\ pacientesCalMais++;}
+\DoxyCodeLine{00222\ \ \ \ \ \}}
+\DoxyCodeLine{00223\ \ \ \ \ \textcolor{keywordflow}{return}\ pacientesCalMais;}
+\DoxyCodeLine{00224\ \}}
 
 \end{DoxyCode}
 \Hypertarget{_header_8h_ae27fdf65316ebf0fdd62fc1dfec3f59d}\label{_header_8h_ae27fdf65316ebf0fdd62fc1dfec3f59d} 
@@ -696,7 +706,7 @@ Conta o nº de pacientes que ultrapassaram um limite de calorias num determinado 
 
 
 
-Desenha a tabela para cada dieta com plano associado registada. 
+Desenha a tabela para cada dieta com plano associado registada (FULLSCREEN) 
 
 
 \begin{DoxyParams}{ParÃ¢metros}
@@ -715,84 +725,84 @@ Desenha a tabela para cada dieta com plano associado registada.
 \end{DoxyParams}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00403\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00404\ }
-\DoxyCodeLine{00405\ \ \ \ \ \mbox{\hyperlink{struct_paciente}{Paciente}}\ pacienteTemp;}
-\DoxyCodeLine{00406\ \ \ \ \ \mbox{\hyperlink{struct_plano}{Plano}}\ planoTemp;}
-\DoxyCodeLine{00407\ \ \ \ \ \textcolor{keywordtype}{int}\ caloriasRefeicao\ =\ 0;}
-\DoxyCodeLine{00408\ }
-\DoxyCodeLine{00409\ \ \ \ \ \textcolor{keywordtype}{char}\ refeicao[\mbox{\hyperlink{_header_8h_a0240ac851181b84ac374872dc5434ee4}{N}}];}
-\DoxyCodeLine{00410\ \ \ \ \ \textcolor{keywordtype}{char}\ dataInicio[\mbox{\hyperlink{_header_8h_a0240ac851181b84ac374872dc5434ee4}{N}}];}
-\DoxyCodeLine{00411\ \ \ \ \ \textcolor{keywordtype}{char}\ dataFim[\mbox{\hyperlink{_header_8h_a0240ac851181b84ac374872dc5434ee4}{N}}];}
-\DoxyCodeLine{00412\ }
-\DoxyCodeLine{00413\ \ \ \ \ \textcolor{keywordtype}{bool}\ saltarDieta\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00414\ \ \ \ \ \textcolor{keywordtype}{bool}\ temPlano\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00415\ }
-\DoxyCodeLine{00416\ \ \ \ \ \textcolor{comment}{//Escreve\ o\ cabeçalho\ da\ tabela}}
-\DoxyCodeLine{00417\ \ \ \ \ printf(\textcolor{stringliteral}{"{}+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/+\(\backslash\)n"{}});}
-\DoxyCodeLine{00418\ \ \ \ \ printf(\textcolor{stringliteral}{"{}|\ \ \ NP\ \ |\ \ \ Paciente\ \ \ \ |\ \ \ Refeicao\ \ \ \ |\ \ \ Data\ Inicio\ |\ \ \ Data\ Fim\ \ \ \ |\ \ \ Min\ |\ \ \ Max\ |\ \ \ Consumo\ |\(\backslash\)n"{}});}
-\DoxyCodeLine{00419\ \ \ \ \ printf(\textcolor{stringliteral}{"{}|-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/|\(\backslash\)n"{}});}
-\DoxyCodeLine{00420\ }
-\DoxyCodeLine{00421\ }
-\DoxyCodeLine{00422\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ tamDietas;\ i++)}
-\DoxyCodeLine{00423\ \ \ \ \ \{}
-\DoxyCodeLine{00424\ \ \ \ \ \ \ \ \ caloriasRefeicao\ +=\ dietas[i].\mbox{\hyperlink{struct_dieta_afb3817c3f83cf5275206594f812d391a}{cal}};}
+\DoxyCodeLine{00413\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00414\ }
+\DoxyCodeLine{00415\ \ \ \ \ \mbox{\hyperlink{struct_paciente}{Paciente}}\ pacienteTemp;}
+\DoxyCodeLine{00416\ \ \ \ \ \mbox{\hyperlink{struct_plano}{Plano}}\ planoTemp;}
+\DoxyCodeLine{00417\ \ \ \ \ \textcolor{keywordtype}{int}\ caloriasRefeicao\ =\ 0;}
+\DoxyCodeLine{00418\ }
+\DoxyCodeLine{00419\ \ \ \ \ \textcolor{keywordtype}{char}\ refeicao[\mbox{\hyperlink{_header_8h_a0240ac851181b84ac374872dc5434ee4}{N}}];}
+\DoxyCodeLine{00420\ \ \ \ \ \textcolor{keywordtype}{char}\ dataInicio[\mbox{\hyperlink{_header_8h_a0240ac851181b84ac374872dc5434ee4}{N}}];}
+\DoxyCodeLine{00421\ \ \ \ \ \textcolor{keywordtype}{char}\ dataFim[\mbox{\hyperlink{_header_8h_a0240ac851181b84ac374872dc5434ee4}{N}}];}
+\DoxyCodeLine{00422\ }
+\DoxyCodeLine{00423\ \ \ \ \ \textcolor{keywordtype}{bool}\ saltarDieta\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00424\ \ \ \ \ \textcolor{keywordtype}{bool}\ temPlano\ =\ \textcolor{keyword}{false};}
 \DoxyCodeLine{00425\ }
-\DoxyCodeLine{00426\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Se\ existir\ outra\ dieta\ no\ mesmo\ dia\ e\ na\ mesma\ refeicao,\ incrementa\ calorias}}
-\DoxyCodeLine{00427\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ tamDietas;\ j++)}
-\DoxyCodeLine{00428\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00429\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dietas[i].numPaciente\ ==\ dietas[j].numPaciente\ \&\&\ dietas[i].refeicao\ ==\ dietas[j].refeicao\ \&\&\ dietas[i].data\ ==\ dietas[j].data)}
-\DoxyCodeLine{00430\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00431\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ ==\ j)\ \textcolor{keywordflow}{continue};}
-\DoxyCodeLine{00432\ }
-\DoxyCodeLine{00433\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Se\ já escreveu\ esta\ linha,\ salta\ para\ a\ próxima}}
-\DoxyCodeLine{00434\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ >\ j)\ \{}
-\DoxyCodeLine{00435\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ saltarDieta\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00436\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00437\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00438\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ caloriasRefeicao\ +=\ dietas[j].\mbox{\hyperlink{struct_dieta_afb3817c3f83cf5275206594f812d391a}{cal}};}
-\DoxyCodeLine{00439\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00440\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00441\ }
-\DoxyCodeLine{00442\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Procura\ as\ infos\ do\ paciente\ na\ dieta\ atual}}
-\DoxyCodeLine{00443\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ tamPacientes;\ j++)}
-\DoxyCodeLine{00444\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00445\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dietas[i].numPaciente\ ==\ pacientes[j].numPaciente)\ \{}
-\DoxyCodeLine{00446\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pacienteTemp\ =\ pacientes[j];}
-\DoxyCodeLine{00447\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00448\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00449\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00450\ }
-\DoxyCodeLine{00451\ \ \ \ \ \ \ \ \ temPlano\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00452\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Procura\ as\ infos\ do\ plano\ a\ que\ corresponde\ a\ dieta}}
-\DoxyCodeLine{00453\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ tamPlanos;\ j++)}
+\DoxyCodeLine{00426\ \ \ \ \ \textcolor{comment}{//Escreve\ o\ cabeçalho\ da\ tabela}}
+\DoxyCodeLine{00427\ \ \ \ \ printf(\textcolor{stringliteral}{"{}+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/+\(\backslash\)n"{}});}
+\DoxyCodeLine{00428\ \ \ \ \ printf(\textcolor{stringliteral}{"{}|\ \ \ NP\ \ |\ \ \ Paciente\ \ \ \ |\ \ \ Refeicao\ \ \ \ |\ \ \ Data\ Inicio\ |\ \ \ Data\ Fim\ \ \ \ |\ \ \ Min\ |\ \ \ Max\ |\ \ \ Consumo\ |\(\backslash\)n"{}});}
+\DoxyCodeLine{00429\ \ \ \ \ printf(\textcolor{stringliteral}{"{}|-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/|\(\backslash\)n"{}});}
+\DoxyCodeLine{00430\ }
+\DoxyCodeLine{00431\ }
+\DoxyCodeLine{00432\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ tamDietas;\ i++)}
+\DoxyCodeLine{00433\ \ \ \ \ \{}
+\DoxyCodeLine{00434\ \ \ \ \ \ \ \ \ caloriasRefeicao\ +=\ dietas[i].\mbox{\hyperlink{struct_dieta_afb3817c3f83cf5275206594f812d391a}{cal}};}
+\DoxyCodeLine{00435\ }
+\DoxyCodeLine{00436\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Se\ existir\ outra\ dieta\ no\ mesmo\ dia\ e\ na\ mesma\ refeicao,\ incrementa\ calorias}}
+\DoxyCodeLine{00437\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ tamDietas;\ j++)}
+\DoxyCodeLine{00438\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00439\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dietas[i].numPaciente\ ==\ dietas[j].numPaciente\ \&\&\ dietas[i].refeicao\ ==\ dietas[j].refeicao\ \&\&\ dietas[i].data\ ==\ dietas[j].data)}
+\DoxyCodeLine{00440\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00441\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ ==\ j)\ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00442\ }
+\DoxyCodeLine{00443\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Se\ já escreveu\ esta\ linha,\ salta\ para\ a\ próxima}}
+\DoxyCodeLine{00444\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ >\ j)\ \{}
+\DoxyCodeLine{00445\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ saltarDieta\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00446\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00447\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00448\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ caloriasRefeicao\ +=\ dietas[j].\mbox{\hyperlink{struct_dieta_afb3817c3f83cf5275206594f812d391a}{cal}};}
+\DoxyCodeLine{00449\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00450\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00451\ }
+\DoxyCodeLine{00452\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Procura\ as\ infos\ do\ paciente\ na\ dieta\ atual}}
+\DoxyCodeLine{00453\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ tamPacientes;\ j++)}
 \DoxyCodeLine{00454\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00455\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dietas[i].numPaciente\ ==\ planos[j].numPaciente\ \&\&\ dietas[i].refeicao\ ==\ planos[j].refeicao\ \&\&\ planos[j].dataInicio\ <=\ dietas[i].data\ \&\&\ planos[j].dataFim\ >=\ dietas[i].data)\ \{}
-\DoxyCodeLine{00456\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ planoTemp\ =\ planos[j];}
-\DoxyCodeLine{00457\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ temPlano\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00458\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00459\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ }
-\DoxyCodeLine{00460\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00461\ }
-\DoxyCodeLine{00462\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ salta\ para\ a\ proxima\ linha\ caso\ já tenha\ escrito\ esta\ dieta\ ou\ a\ dieta\ não tenha\ plano\ associado}}
-\DoxyCodeLine{00463\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (saltarDieta\ ||\ !temPlano)\ \{}
-\DoxyCodeLine{00464\ \ \ \ \ \ \ \ \ \ \ \ \ saltarDieta\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00465\ \ \ \ \ \ \ \ \ \ \ \ \ caloriasRefeicao\ =\ 0;}
-\DoxyCodeLine{00466\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
-\DoxyCodeLine{00467\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00468\ }
-\DoxyCodeLine{00469\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ converte\ a\ refeição\ para\ string\ para\ ser\ mostrada}}
-\DoxyCodeLine{00470\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_funcoes_8c_aa6dee3c396516c38394c48b3c2eda52a}{ConverteRefeicaoString}}(dietas[i].refeicao,\ refeicao);}
+\DoxyCodeLine{00455\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dietas[i].numPaciente\ ==\ pacientes[j].numPaciente)\ \{}
+\DoxyCodeLine{00456\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pacienteTemp\ =\ pacientes[j];}
+\DoxyCodeLine{00457\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00458\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00459\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00460\ }
+\DoxyCodeLine{00461\ \ \ \ \ \ \ \ \ temPlano\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00462\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Procura\ as\ infos\ do\ plano\ a\ que\ corresponde\ a\ dieta}}
+\DoxyCodeLine{00463\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ tamPlanos;\ j++)}
+\DoxyCodeLine{00464\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00465\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dietas[i].numPaciente\ ==\ planos[j].numPaciente\ \&\&\ dietas[i].refeicao\ ==\ planos[j].refeicao\ \&\&\ planos[j].dataInicio\ <=\ dietas[i].data\ \&\&\ planos[j].dataFim\ >=\ dietas[i].data)\ \{}
+\DoxyCodeLine{00466\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ planoTemp\ =\ planos[j];}
+\DoxyCodeLine{00467\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ temPlano\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00468\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00469\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ }
+\DoxyCodeLine{00470\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{00471\ }
-\DoxyCodeLine{00472\ \ \ \ \ \ \ \ \ \textcolor{comment}{//organiza\ as\ datas\ para\ dia/mes/ano}}
-\DoxyCodeLine{00473\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_funcoes_8c_a452388cb782866380840b3f37850ddbd}{ConverteDataString}}(planoTemp.\mbox{\hyperlink{struct_plano_ae66bb545b057d80da4ddbe70a5c71daa}{dataInicio}},\ dataInicio,\ \mbox{\hyperlink{_header_8h_a0240ac851181b84ac374872dc5434ee4}{N}});}
-\DoxyCodeLine{00474\ }
-\DoxyCodeLine{00475\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_funcoes_8c_a452388cb782866380840b3f37850ddbd}{ConverteDataString}}(planoTemp.\mbox{\hyperlink{struct_plano_ad582dfb46c63027678e3c5c651a6339e}{dataFim}},\ dataFim,\ \mbox{\hyperlink{_header_8h_a0240ac851181b84ac374872dc5434ee4}{N}});}
-\DoxyCodeLine{00476\ }
-\DoxyCodeLine{00477\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}|\ \ \ \%d\ \ |\ \ \ \%s\ \ \ \ \ \ |\ \ \ \%s\ \ \ \ \ \ |\ \ \ \%s\ \ |\ \ \ \%s\ \ |\ \ \ \%d\ \ |\ \ \ \%d\ \ |\ \ \ \%d\ \ |\(\backslash\)n"{}},\ dietas[i].numPaciente,\ pacienteTemp.\mbox{\hyperlink{struct_paciente_ad09a39820e617f7fad90bf22bf41ec4e}{nome}},\ refeicao,\ dataInicio,\ dataFim,\ planoTemp.\mbox{\hyperlink{struct_plano_a0cd6d7c97743687dfe85445675a63897}{minCal}},\ planoTemp.\mbox{\hyperlink{struct_plano_a37aa03df6e08a728789d5c0540cc4e7f}{maxCal}},\ caloriasRefeicao);}
-\DoxyCodeLine{00478\ \ \ \ \ \ \ \ \ caloriasRefeicao\ =\ 0;}
-\DoxyCodeLine{00479\ \ \ \ \ \}}
-\DoxyCodeLine{00480\ \ \ \ \ printf(\textcolor{stringliteral}{"{}+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/+\(\backslash\)n"{}});}
-\DoxyCodeLine{00481\ \}}
+\DoxyCodeLine{00472\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ salta\ para\ a\ proxima\ linha\ caso\ já tenha\ escrito\ esta\ dieta\ ou\ a\ dieta\ não tenha\ plano\ associado}}
+\DoxyCodeLine{00473\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (saltarDieta\ ||\ !temPlano)\ \{}
+\DoxyCodeLine{00474\ \ \ \ \ \ \ \ \ \ \ \ \ saltarDieta\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00475\ \ \ \ \ \ \ \ \ \ \ \ \ caloriasRefeicao\ =\ 0;}
+\DoxyCodeLine{00476\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00477\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00478\ }
+\DoxyCodeLine{00479\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ converte\ a\ refeição\ para\ string\ para\ ser\ mostrada}}
+\DoxyCodeLine{00480\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_funcoes_8c_aa6dee3c396516c38394c48b3c2eda52a}{ConverteRefeicaoString}}(dietas[i].refeicao,\ refeicao);}
+\DoxyCodeLine{00481\ }
+\DoxyCodeLine{00482\ \ \ \ \ \ \ \ \ \textcolor{comment}{//organiza\ as\ datas\ para\ dia/mes/ano}}
+\DoxyCodeLine{00483\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_funcoes_8c_a452388cb782866380840b3f37850ddbd}{ConverteDataString}}(planoTemp.\mbox{\hyperlink{struct_plano_ae66bb545b057d80da4ddbe70a5c71daa}{dataInicio}},\ dataInicio,\ \mbox{\hyperlink{_header_8h_a0240ac851181b84ac374872dc5434ee4}{N}});}
+\DoxyCodeLine{00484\ }
+\DoxyCodeLine{00485\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_funcoes_8c_a452388cb782866380840b3f37850ddbd}{ConverteDataString}}(planoTemp.\mbox{\hyperlink{struct_plano_ad582dfb46c63027678e3c5c651a6339e}{dataFim}},\ dataFim,\ \mbox{\hyperlink{_header_8h_a0240ac851181b84ac374872dc5434ee4}{N}});}
+\DoxyCodeLine{00486\ }
+\DoxyCodeLine{00487\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}|\ \ \ \%d\ \ |\ \ \ \%s\ \ \ \ \ \ |\ \ \ \%s\ \ \ \ \ \ |\ \ \ \%s\ \ |\ \ \ \%s\ \ |\ \ \ \%d\ \ |\ \ \ \%d\ \ |\ \ \ \%d\ \ |\(\backslash\)n"{}},\ dietas[i].numPaciente,\ pacienteTemp.\mbox{\hyperlink{struct_paciente_ad09a39820e617f7fad90bf22bf41ec4e}{nome}},\ refeicao,\ dataInicio,\ dataFim,\ planoTemp.\mbox{\hyperlink{struct_plano_a0cd6d7c97743687dfe85445675a63897}{minCal}},\ planoTemp.\mbox{\hyperlink{struct_plano_a37aa03df6e08a728789d5c0540cc4e7f}{maxCal}},\ caloriasRefeicao);}
+\DoxyCodeLine{00488\ \ \ \ \ \ \ \ \ caloriasRefeicao\ =\ 0;}
+\DoxyCodeLine{00489\ \ \ \ \ \}}
+\DoxyCodeLine{00490\ \ \ \ \ printf(\textcolor{stringliteral}{"{}+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/+\(\backslash\)n"{}});}
+\DoxyCodeLine{00491\ \}}
 
 \end{DoxyCode}
