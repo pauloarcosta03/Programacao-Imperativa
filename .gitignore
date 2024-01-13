@@ -7,8 +7,8 @@
 *. txt
 
 # Ignorar ficheiros da compilacao
-*. exe
-*. o
+*.exe
+*.o
 
 # User-specific files
 *.rsuser
